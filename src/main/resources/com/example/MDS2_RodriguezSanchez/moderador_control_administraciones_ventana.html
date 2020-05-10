@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-split-panel style-name="fondo_default" locked split-position="5%">
+   <vaadin-panel style-name="barra_superior sin_bordes" size-full></vaadin-panel>
+   <vaadin-vertical-split-panel locked split-position="30%">
+    <vaadin-horizontal-layout size-full _id="ventana_user">
+     <vaadin-panel style-name="no_borde margen_rigth_2 margen_top_2" width-auto height="70%" _id="etiqueta_user">
+      <vaadin-horizontal-layout style-name="margen_rigth_2 margen_left_2" height-full>
+       <vaadin-image style-name="margen_right_2" width="120px" height-full :middle :center></vaadin-image>
+       <vaadin-vertical-layout style-name="texto_normal" size-auto margin="false" :middle :center>
+        <vaadin-label style-name="texto_normal" plain-text>
+          Nombre_usuario_vab 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          Amigos: var() 
+        </vaadin-label>
+        <vaadin-label plain-text>
+          Mensajes online: var() 
+        </vaadin-label>
+       </vaadin-vertical-layout>
+      </vaadin-horizontal-layout>
+     </vaadin-panel>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout size-full>
+     <vaadin-form-layout size-full margin="false">
+      <vaadin-panel style-name="no_borde texto_centrado" size-auto>
+       <vaadin-label style-name="margen_left_2 margen_rigth_2" responsive plain-text>
+         Notificaciones a moderador 
+       </vaadin-label>
+      </vaadin-panel>
+      <vaadin-panel style-name="fondo_tres" width="95%" height-full>
+       <vaadin-list-select style-name="fondo_dos margen_bottom_2 margen_top_2" width-full height="90%" data-item-type="java.lang.String">
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-list-select>
+      </vaadin-panel>
+      <vaadin-horizontal-layout width="50%">
+       <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+       <vaadin-button style-name="no_borde fondo_botones_form" plain-text>
+         Buscar 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+     </vaadin-form-layout>
+     <vaadin-vertical-layout size-full>
+      <vaadin-horizontal-layout width-full>
+       <vaadin-vertical-layout size-auto>
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+          Reportar admin 
+        </vaadin-button>
+        <vaadin-button style-name="fondo_botones_form" plain-text>
+          Eliminar notificacion 
+        </vaadin-button>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+      </vaadin-horizontal-layout>
+      <vaadin-vertical-layout></vaadin-vertical-layout>
+     </vaadin-vertical-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-split-panel>
+  </vaadin-vertical-split-panel>
+ </body>
+</html>

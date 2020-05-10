@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full margin="false">
+   <vaadin-vertical-split-panel locked split-position="5%">
+    <vaadin-panel style-name="barra_superior no_borde" size-full></vaadin-panel>
+    <vaadin-horizontal-layout style-name="fondo_default" size-full>
+     <vaadin-label plain-text></vaadin-label>
+     <vaadin-panel style-name="margen_top_1">
+      <vaadin-form-layout style-name="centrado">
+       <vaadin-horizontal-layout width-full>
+        <vaadin-label style-name="fondo_blanco centrado texto_centrado" plain-text>
+          Cambiar contraseña 
+        </vaadin-label>
+        <vaadin-label plain-text></vaadin-label>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-split-panel style-name="no_borde" locked height-auto split-position="38%">
+        <vaadin-label plain-text>
+          Contraseña actual 
+        </vaadin-label>
+        <vaadin-text-field style-name="no_borde" width="95%"></vaadin-text-field>
+       </vaadin-horizontal-split-panel>
+       <vaadin-horizontal-split-panel locked height-auto split-position="38%">
+        <vaadin-label plain-text>
+          Contraseña nueva 
+        </vaadin-label>
+        <vaadin-text-field style-name="no_borde" width="95%"></vaadin-text-field>
+       </vaadin-horizontal-split-panel>
+       <vaadin-horizontal-layout width-full>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+          Aceptar 
+        </vaadin-button>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+          Cancelar 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+      </vaadin-form-layout>
+     </vaadin-panel>
+     <vaadin-label plain-text></vaadin-label>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-split-panel>
+  </vaadin-vertical-layout>
+ </body>
+</html>
