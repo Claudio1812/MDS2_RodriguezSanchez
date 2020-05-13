@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Model quotesql="1" tablecharset="" mysql_version="504" mssql_version="2005" derby_version="106" ingres_version="9">
+  <Entity name="Nota" Unlogged="false" PKClustered="0">
+    <Column name="Id_nota">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Titulo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Cuerpo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Motivo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Seccion" Unlogged="false" PKClustered="0">
+    <Column name="Id_seccion">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AdministradorUsuarioId_usuario2">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Administrador.UsuarioId_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TemaId_tema2">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Tema.Id_tema</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AdministradorUsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TemaId_tema">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Fecha_creacion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Moderador_Usuario" Unlogged="false" PKClustered="0">
+    <Column name="ModeradorUsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrador_Usuario" Unlogged="false" PKClustered="0">
+    <Column name="AdministradorUsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Mensaje_Usuario" Unlogged="false" PKClustered="0">
+    <Column name="MensajeId_mensaje">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Tema" Unlogged="false" PKClustered="0">
+    <Column name="Id_tema">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TemaId_tema3">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Tema.Id_tema</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TemaId_tema2">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Tema.Id_tema</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TemaId_tema">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Tema.Id_tema</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Descripcion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Fecha_creacion">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Me_gusta">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Participantes">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Mensaje" Unlogged="false" PKClustered="0">
+    <Column name="Id_mensaje">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="VideoMediaId_media">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Video.MediaId_media</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="MensajeId_mensaje">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Mensaje.Id_mensaje</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TemaId_tema">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Tema.Id_tema</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Cuerpo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Me_gusta">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Moderador" Unlogged="false" PKClustered="0">
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AdministradorUsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Administrador.UsuarioId_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrador" Unlogged="false" PKClustered="0">
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Media" Unlogged="false" PKClustered="0">
+    <Column name="Id_media">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Tamaño">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Formato">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Foto" Unlogged="false" PKClustered="0">
+    <Column name="MediaId_media">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Media.Id_media</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Video" Unlogged="false" PKClustered="0">
+    <Column name="MediaId_media">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Media.Id_media</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Usuario" Unlogged="false" PKClustered="0">
+    <Column name="Id_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AdministradorUsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Administrador.UsuarioId_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Nombre">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Apellidos">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Email">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Contrasena">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Notificacion" Unlogged="false" PKClustered="0">
+    <Column name="NotaId_nota">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Nota.Id_nota</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Moderador_Usuario2" Unlogged="false" PKClustered="0">
+    <Column name="ModeradorUsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Moderador.UsuarioId_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Administrador_Usuario2" Unlogged="false" PKClustered="0">
+    <Column name="AdministradorUsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Administrador.UsuarioId_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Mensaje_Usuario2" Unlogged="false" PKClustered="0">
+    <Column name="MensajeId_mensaje">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Mensaje.Id_mensaje</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioId_usuario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>paquete1.Usuario.Id_usuario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <ForeignKey name="FKModerador159228">
+    <ReferenceTable>Moderador</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKAdministra627095">
+    <ReferenceTable>Administrador</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKFoto122892">
+    <ReferenceTable>Foto</ReferenceTable>
+    <ReferencedTable>Media</ReferencedTable>
+    <Columns>
+      <Column>MediaId_media</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_media</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKVideo577427">
+    <ReferenceTable>Video</ReferenceTable>
+    <ReferencedTable>Media</ReferencedTable>
+    <Columns>
+      <Column>MediaId_media</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_media</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKNotificaci720477">
+    <ReferenceTable>Notificacion</ReferenceTable>
+    <ReferencedTable>Nota</ReferencedTable>
+    <Columns>
+      <Column>NotaId_nota</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_nota</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensaje657495">
+    <ReferenceTable>Mensaje</ReferenceTable>
+    <ReferencedTable>Tema</ReferencedTable>
+    <Columns>
+      <Column>TemaId_tema</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_tema</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensaje78768">
+    <ReferenceTable>Mensaje</ReferenceTable>
+    <ReferencedTable>Mensaje</ReferencedTable>
+    <Columns>
+      <Column>MensajeId_mensaje</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_mensaje</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensaje19308">
+    <ReferenceTable>Mensaje</ReferenceTable>
+    <ReferencedTable>Video</ReferencedTable>
+    <Columns>
+      <Column>VideoMediaId_media</Column>
+    </Columns>
+    <RefColumns>
+      <Column>MediaId_media</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKModerador_51010">
+    <ReferenceTable>Moderador_Usuario2</ReferenceTable>
+    <ReferencedTable>Moderador</ReferencedTable>
+    <Columns>
+      <Column>ModeradorUsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioId_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKModerador_413815">
+    <ReferenceTable>Moderador_Usuario2</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKAdministra956228">
+    <ReferenceTable>Administrador_Usuario2</ReferenceTable>
+    <ReferencedTable>Administrador</ReferencedTable>
+    <Columns>
+      <Column>AdministradorUsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioId_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKAdministra417592">
+    <ReferenceTable>Administrador_Usuario2</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensaje97513">
+    <ReferenceTable>Mensaje</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario250901">
+    <ReferenceTable>Usuario</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario346868">
+    <ReferenceTable>Usuario</ReferenceTable>
+    <ReferencedTable>Administrador</ReferencedTable>
+    <Columns>
+      <Column>AdministradorUsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioId_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKTema953632">
+    <ReferenceTable>Tema</ReferenceTable>
+    <ReferencedTable>Tema</ReferencedTable>
+    <Columns>
+      <Column>TemaId_tema</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_tema</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKTema903165">
+    <ReferenceTable>Tema</ReferenceTable>
+    <ReferencedTable>Tema</ReferencedTable>
+    <Columns>
+      <Column>TemaId_tema2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_tema</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKTema903166">
+    <ReferenceTable>Tema</ReferenceTable>
+    <ReferencedTable>Tema</ReferencedTable>
+    <Columns>
+      <Column>TemaId_tema3</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_tema</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKNotificaci958234">
+    <ReferenceTable>Notificacion</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKTema513615">
+    <ReferenceTable>Tema</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensaje_Us654897">
+    <ReferenceTable>Mensaje_Usuario2</ReferenceTable>
+    <ReferencedTable>Mensaje</ReferencedTable>
+    <Columns>
+      <Column>MensajeId_mensaje</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_mensaje</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKMensaje_Us335438">
+    <ReferenceTable>Mensaje_Usuario2</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKModerador214593">
+    <ReferenceTable>Moderador</ReferenceTable>
+    <ReferencedTable>Administrador</ReferencedTable>
+    <Columns>
+      <Column>AdministradorUsuarioId_usuario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioId_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKSeccion720311">
+    <ReferenceTable>Seccion</ReferenceTable>
+    <ReferencedTable>Tema</ReferencedTable>
+    <Columns>
+      <Column>TemaId_tema2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>Id_tema</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKSeccion300294">
+    <ReferenceTable>Seccion</ReferenceTable>
+    <ReferencedTable>Administrador</ReferencedTable>
+    <Columns>
+      <Column>AdministradorUsuarioId_usuario2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioId_usuario</Column>
+    </RefColumns>
+  </ForeignKey>
+</Model>
