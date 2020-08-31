@@ -9,7 +9,7 @@ import paquete1.Bd_main;
 import paquete1.Usuario;
 
 public class item_amigo_control extends item_amigo_ventana implements View {
-	//Hola
+	//Holaaa
 	Label nombre;
 	Navigator viaje;
 	Usuario itemUser;
