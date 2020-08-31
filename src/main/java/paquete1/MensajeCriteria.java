@@ -20,30 +20,34 @@ import org.orm.criteria.*;
 
 public class MensajeCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id_mensaje;
-	public final IntegerExpression mensaje_propietarioId;
-	public final AssociationExpression mensaje_propietario;
-	public final IntegerExpression mensaje_tiene_videoId;
-	public final AssociationExpression mensaje_tiene_video;
-	public final IntegerExpression tema_perteneceId;
-	public final AssociationExpression tema_pertenece;
+	public final IntegerExpression respuesta_deId;
+	public final AssociationExpression respuesta_de;
+	public final IntegerExpression esta_enId;
+	public final AssociationExpression esta_en;
+	public final IntegerExpression mensaje_escrito_porId;
+	public final AssociationExpression mensaje_escrito_por;
 	public final StringExpression cuerpo;
 	public final IntegerExpression me_gusta;
-	public final CollectionExpression Respuesta_de;
-	public final CollectionExpression es_gustado;
+	public final StringExpression titulo;
+	public final CollectionExpression respondido_por;
+	public final CollectionExpression referenciado_por;
+	public final CollectionExpression gustado_por;
 	
 	public MensajeCriteria(Criteria criteria) {
 		super(criteria);
 		id_mensaje = new IntegerExpression("id_mensaje", this);
-		mensaje_propietarioId = new IntegerExpression("mensaje_propietario.id_usuario", this);
-		mensaje_propietario = new AssociationExpression("mensaje_propietario", this);
-		mensaje_tiene_videoId = new IntegerExpression("mensaje_tiene_video.", this);
-		mensaje_tiene_video = new AssociationExpression("mensaje_tiene_video", this);
-		tema_perteneceId = new IntegerExpression("tema_pertenece.id_tema", this);
-		tema_pertenece = new AssociationExpression("tema_pertenece", this);
+		respuesta_deId = new IntegerExpression("respuesta_de.id_mensaje", this);
+		respuesta_de = new AssociationExpression("respuesta_de", this);
+		esta_enId = new IntegerExpression("esta_en.id_tema", this);
+		esta_en = new AssociationExpression("esta_en", this);
+		mensaje_escrito_porId = new IntegerExpression("mensaje_escrito_por.id_usuario", this);
+		mensaje_escrito_por = new AssociationExpression("mensaje_escrito_por", this);
 		cuerpo = new StringExpression("cuerpo", this);
 		me_gusta = new IntegerExpression("me_gusta", this);
-		Respuesta_de = new CollectionExpression("ORM_respuesta_de", this);
-		es_gustado = new CollectionExpression("ORM_es_gustado", this);
+		titulo = new StringExpression("titulo", this);
+		respondido_por = new CollectionExpression("ORM_respondido_por", this);
+		referenciado_por = new CollectionExpression("ORM_referenciado_por", this);
+		gustado_por = new CollectionExpression("ORM_gustado_por", this);
 	}
 	
 	public MensajeCriteria(PersistentSession session) {
@@ -51,27 +55,31 @@ public class MensajeCriteria extends AbstractORMCriteria {
 	}
 	
 	public MensajeCriteria() throws PersistentException {
-		this(BasededatosPersistentManager.instance().getSession());
-	}
-	
-	public UsuarioCriteria createMensaje_propietarioCriteria() {
-		return new UsuarioCriteria(createCriteria("mensaje_propietario"));
-	}
-	
-	public VideoCriteria createMensaje_tiene_videoCriteria() {
-		return new VideoCriteria(createCriteria("mensaje_tiene_video"));
-	}
-	
-	public TemaCriteria createTema_perteneceCriteria() {
-		return new TemaCriteria(createCriteria("tema_pertenece"));
+		this(ClasesIUPersistentManager.instance().getSession());
 	}
 	
 	public MensajeCriteria createRespuesta_deCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_respuesta_de"));
+		return new MensajeCriteria(createCriteria("respuesta_de"));
 	}
 	
-	public UsuarioCriteria createEs_gustadoCriteria() {
-		return new UsuarioCriteria(createCriteria("ORM_es_gustado"));
+	public TemaCriteria createEsta_enCriteria() {
+		return new TemaCriteria(createCriteria("esta_en"));
+	}
+	
+	public UsuarioCriteria createMensaje_escrito_porCriteria() {
+		return new UsuarioCriteria(createCriteria("mensaje_escrito_por"));
+	}
+	
+	public MensajeCriteria createRespondido_porCriteria() {
+		return new MensajeCriteria(createCriteria("ORM_respondido_por"));
+	}
+	
+	public NotificacionCriteria createReferenciado_porCriteria() {
+		return new NotificacionCriteria(createCriteria("ORM_referenciado_por"));
+	}
+	
+	public UsuarioCriteria createGustado_porCriteria() {
+		return new UsuarioCriteria(createCriteria("ORM_gustado_por"));
 	}
 	
 	public Mensaje uniqueMensaje() {

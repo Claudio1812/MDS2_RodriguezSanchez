@@ -22,23 +22,26 @@
        </vaadin-horizontal-layout>
        <vaadin-horizontal-split-panel style-name="no_borde" height-auto split-position="30%">
         <vaadin-label plain-text>
-          Nombre 
+          Email 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" width-full _id="text_email"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-split-panel height-auto split-position="30%">
         <vaadin-label plain-text>
           Contraseña 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-password-field width-full _id="text_contrasena"></vaadin-password-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-layout width-full>
-        <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="iniciar_sesion_login">
           Iniciar 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_registrarse">
           Registrarse 
         </vaadin-button>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout size-full>
+        <vaadin-label visible="false" plain-text _id="label_de_error"></vaadin-label>
        </vaadin-horizontal-layout>
       </vaadin-form-layout>
      </vaadin-panel>

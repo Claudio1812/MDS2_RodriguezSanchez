@@ -75,6 +75,7 @@ public class TemaSetCollection extends org.orm.util.ORMSet {
 	 * <li>fecha_creacion</li>
 	 * <li>me_gusta</li>
 	 * <li>participantes</li>
+	 * <li>titulo</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -90,6 +91,7 @@ public class TemaSetCollection extends org.orm.util.ORMSet {
 	 * <li>fecha_creacion</li>
 	 * <li>me_gusta</li>
 	 * <li>participantes</li>
+	 * <li>titulo</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array
@@ -99,7 +101,7 @@ public class TemaSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return BasededatosPersistentManager.instance();
+		return ClasesIUPersistentManager.instance();
 	}
 	
 }

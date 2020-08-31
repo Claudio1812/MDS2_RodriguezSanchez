@@ -6,26 +6,33 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full margin="false">
-   <vaadin-vertical-split-panel style-name="fondo_default no_borde" locked split-position="5%">
-    <vaadin-panel style-name="barra_superior"></vaadin-panel>
-    <vaadin-vertical-split-panel locked split-position="15%">
+  <vaadin-vertical-layout spacing="false" responsive size-full margin="false">
+   <vaadin-vertical-split-panel style-name="fondo_default no_borde" responsive locked split-position="10%">
+    <vaadin-panel style-name="barra_superior" responsive height="40%"></vaadin-panel>
+    <vaadin-vertical-split-panel locked split-position="20%">
      <vaadin-horizontal-layout size-full>
-      <vaadin-vertical-layout style-name="margen_top_2" size-full margin="false">
-       <vaadin-horizontal-split-panel locked>
-        <vaadin-panel style-name="no_borde" size-auto>
-         <vaadin-vertical-layout width-auto height-full>
-          <vaadin-label style-name="texto_centrado" height-full plain-text>
-            Tema nombre_var() 
-          </vaadin-label>
-         </vaadin-vertical-layout>
-        </vaadin-panel>
-        <vaadin-horizontal-split-panel locked>
+      <vaadin-vertical-layout style-name="margen_top_2" size-full margin="false" :middle>
+       <vaadin-horizontal-split-panel locked split-position="70%">
+        <vaadin-horizontal-split-panel locked split-position="28%">
+         <vaadin-panel style-name="no_borde" size-auto>
+          <vaadin-vertical-layout width-auto height-full>
+           <vaadin-label style-name="texto_centrado" height-full plain-text _id="label_nombre_tema">
+             Tema nombre_var() 
+           </vaadin-label>
+          </vaadin-vertical-layout>
+         </vaadin-panel>
+         <vaadin-panel style-name="no_borde" size-full>
+          <vaadin-vertical-layout spacing="false" size-full margin="false">
+           <vaadin-text-area size-full _id="descripcion_tema" :center></vaadin-text-area>
+          </vaadin-vertical-layout>
+         </vaadin-panel>
+        </vaadin-horizontal-split-panel>
+        <vaadin-horizontal-split-panel locked split-position="20%">
          <vaadin-label plain-text></vaadin-label>
-         <vaadin-panel style-name="no_borde" width="50%" height-full>
+         <vaadin-panel style-name="no_borde" width="50%" height-full _id="panel_ficha_usuario">
           <vaadin-horizontal-layout size-full>
-           <vaadin-image size-full></vaadin-image>
-           <vaadin-label plain-text :middle :center>
+           <vaadin-image width-full height="80%" _id="imagen_loegado"></vaadin-image>
+           <vaadin-label plain-text _id="label_nombre_logeado" :middle :center>
              Nombre 
            </vaadin-label>
           </vaadin-horizontal-layout>
@@ -35,41 +42,38 @@
       </vaadin-vertical-layout>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout size-full>
-      <vaadin-horizontal-split-panel split-position="100%">
-       <vaadin-form-layout style-name="margen_rigth_3" spacing="false" width="90%" height-full margin>
-        <vaadin-panel style-name="texto_medio no_borde" size-auto>
-         <vaadin-label style-name="texto_medio margen_minimo no_borde" plain-text>
-           Mensajes 
-         </vaadin-label>
-        </vaadin-panel>
-        <vaadin-list-select rows="12" style-name="no_borde" width-full data-item-type="java.lang.String">
-         <option item="Option1">Option 1</option>
-         <option item="Option2">Option 2</option>
-         <option item="Option3">Option 3</option>
-        </vaadin-list-select>
-        <vaadin-horizontal-layout style-name="margen_top_2" width-full>
-         <vaadin-horizontal-layout>
-          <vaadin-horizontal-layout></vaadin-horizontal-layout>
+      <vaadin-horizontal-split-panel locked split-position="100%">
+       <vaadin-panel style-name="fondo_default" width="95%" height-full>
+        <vaadin-form-layout style-name="margen_rigth_3" spacing="false" width="95%" height-full margin _id="form_layout_aumento">
+         <vaadin-horizontal-layout width-full height="60%">
+          <vaadin-panel style-name="texto_medio no_borde" width-auto height="60%">
+           <vaadin-label style-name="texto_medio margen_minimo no_borde" plain-text>
+             Mensajes 
+           </vaadin-label>
+          </vaadin-panel>
+          <vaadin-horizontal-layout>
+           <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_volver">
+             Volver 
+           </vaadin-button>
+           <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_responder_tema">
+             Responder Tema 
+           </vaadin-button>
+          </vaadin-horizontal-layout>
          </vaadin-horizontal-layout>
-         <vaadin-horizontal-layout width-full>
+         <vaadin-vertical-layout spacing="false" size-full margin="false" _id="lista_contenedor">
+          <vaadin-panel style-name="v-scrollable" width-auto height-full>
+           <vaadin-vertical-layout style-name="v-scrollable" height="120%" _id="lista_mensajes"></vaadin-vertical-layout>
+          </vaadin-panel>
+         </vaadin-vertical-layout>
+         <vaadin-horizontal-layout style-name="margen_top_2" width-full>
           <vaadin-horizontal-layout width-full>
            <vaadin-horizontal-layout width-full>
-            <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
-              Eliminar 
-            </vaadin-button>
-           </vaadin-horizontal-layout>
-           <vaadin-horizontal-layout width-full>
-            <vaadin-button style-name="fondo_botones_form no_borde" plain-text :right>
-              Reportar 
-            </vaadin-button>
-            <vaadin-button style-name="fondo_botones_form no_borde" plain-text :right>
-              Responder 
-            </vaadin-button>
+            <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
            </vaadin-horizontal-layout>
           </vaadin-horizontal-layout>
          </vaadin-horizontal-layout>
-        </vaadin-horizontal-layout>
-       </vaadin-form-layout>
+        </vaadin-form-layout>
+       </vaadin-panel>
       </vaadin-horizontal-split-panel>
      </vaadin-horizontal-layout>
     </vaadin-vertical-split-panel>

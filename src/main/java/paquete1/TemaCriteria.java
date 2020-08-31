@@ -20,34 +20,30 @@ import org.orm.criteria.*;
 
 public class TemaCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id_tema;
-	public final IntegerExpression tema_propietarioId;
-	public final AssociationExpression tema_propietario;
-	public final IntegerExpression seccion_padreId;
-	public final AssociationExpression seccion_padre;
+	public final IntegerExpression pertenece_aId;
+	public final AssociationExpression pertenece_a;
+	public final IntegerExpression creador_temaId;
+	public final AssociationExpression creador_tema;
 	public final StringExpression descripcion;
 	public final StringExpression fecha_creacion;
 	public final IntegerExpression me_gusta;
 	public final IntegerExpression participantes;
-	public final CollectionExpression publico;
-	public final CollectionExpression tema_contiene;
-	public final CollectionExpression oculto;
-	public final CollectionExpression privado;
+	public final StringExpression titulo;
+	public final CollectionExpression tema_tiene_men;
 	
 	public TemaCriteria(Criteria criteria) {
 		super(criteria);
 		id_tema = new IntegerExpression("id_tema", this);
-		tema_propietarioId = new IntegerExpression("tema_propietario.id_usuario", this);
-		tema_propietario = new AssociationExpression("tema_propietario", this);
-		seccion_padreId = new IntegerExpression("seccion_padre.id_tema", this);
-		seccion_padre = new AssociationExpression("seccion_padre", this);
+		pertenece_aId = new IntegerExpression("pertenece_a.id_seccion", this);
+		pertenece_a = new AssociationExpression("pertenece_a", this);
+		creador_temaId = new IntegerExpression("creador_tema.id_usuario", this);
+		creador_tema = new AssociationExpression("creador_tema", this);
 		descripcion = new StringExpression("descripcion", this);
 		fecha_creacion = new StringExpression("fecha_creacion", this);
 		me_gusta = new IntegerExpression("me_gusta", this);
 		participantes = new IntegerExpression("participantes", this);
-		publico = new CollectionExpression("ORM_publico", this);
-		tema_contiene = new CollectionExpression("ORM_tema_contiene", this);
-		oculto = new CollectionExpression("ORM_oculto", this);
-		privado = new CollectionExpression("ORM_privado", this);
+		titulo = new StringExpression("titulo", this);
+		tema_tiene_men = new CollectionExpression("ORM_tema_tiene_men", this);
 	}
 	
 	public TemaCriteria(PersistentSession session) {
@@ -55,31 +51,19 @@ public class TemaCriteria extends AbstractORMCriteria {
 	}
 	
 	public TemaCriteria() throws PersistentException {
-		this(BasededatosPersistentManager.instance().getSession());
+		this(ClasesIUPersistentManager.instance().getSession());
 	}
 	
-	public UsuarioCriteria createTema_propietarioCriteria() {
-		return new UsuarioCriteria(createCriteria("tema_propietario"));
+	public SeccionCriteria createPertenece_aCriteria() {
+		return new SeccionCriteria(createCriteria("pertenece_a"));
 	}
 	
-	public SeccionCriteria createSeccion_padreCriteria() {
-		return new SeccionCriteria(createCriteria("seccion_padre"));
+	public UsuarioCriteria createCreador_temaCriteria() {
+		return new UsuarioCriteria(createCriteria("creador_tema"));
 	}
 	
-	public TemaCriteria createPublicoCriteria() {
-		return new TemaCriteria(createCriteria("ORM_publico"));
-	}
-	
-	public MensajeCriteria createTema_contieneCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_tema_contiene"));
-	}
-	
-	public TemaCriteria createOcultoCriteria() {
-		return new TemaCriteria(createCriteria("ORM_oculto"));
-	}
-	
-	public TemaCriteria createPrivadoCriteria() {
-		return new TemaCriteria(createCriteria("ORM_privado"));
+	public MensajeCriteria createTema_tiene_menCriteria() {
+		return new MensajeCriteria(createCriteria("ORM_tema_tiene_men"));
 	}
 	
 	public Tema uniqueTema() {

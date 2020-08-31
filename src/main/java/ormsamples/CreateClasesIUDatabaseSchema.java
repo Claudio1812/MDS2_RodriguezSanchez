@@ -5,11 +5,11 @@
 package ormsamples;
 
 import org.orm.*;
-public class CreateBasededatosDatabaseSchema {
+public class CreateClasesIUDatabaseSchema {
 	public static void main(String[] args) {
 		try {
-			ORMDatabaseInitiator.createSchema(paquete1.BasededatosPersistentManager.instance());
-			paquete1.BasededatosPersistentManager.instance().disposePersistentManager();
+			ORMDatabaseInitiator.createSchema(paquete1.ClasesIUPersistentManager.instance());
+			paquete1.ClasesIUPersistentManager.instance().disposePersistentManager();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

@@ -21,7 +21,7 @@ import java.util.List;
 public class SeccionDAO {
 	public static Seccion loadSeccionByORMID(int id_seccion) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadSeccionByORMID(session, id_seccion);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class SeccionDAO {
 	
 	public static Seccion getSeccionByORMID(int id_seccion) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getSeccionByORMID(session, id_seccion);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByORMID(int id_seccion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadSeccionByORMID(session, id_seccion, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class SeccionDAO {
 	
 	public static Seccion getSeccionByORMID(int id_seccion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getSeccionByORMID(session, id_seccion, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class SeccionDAO {
 	
 	public static List querySeccion(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return querySeccion(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class SeccionDAO {
 	
 	public static List querySeccion(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return querySeccion(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class SeccionDAO {
 	
 	public static Seccion[] listSeccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listSeccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class SeccionDAO {
 	
 	public static Seccion[] listSeccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listSeccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadSeccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadSeccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class SeccionDAO {
 	
 	public static java.util.Iterator iterateSeccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateSeccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class SeccionDAO {
 	
 	public static java.util.Iterator iterateSeccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateSeccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class SeccionDAO {
 	
 	public static boolean save(paquete1.Seccion seccion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(seccion);
+			ClasesIUPersistentManager.instance().saveObject(seccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class SeccionDAO {
 	
 	public static boolean delete(paquete1.Seccion seccion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(seccion);
+			ClasesIUPersistentManager.instance().deleteObject(seccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -327,10 +327,10 @@ public class SeccionDAO {
 				seccion.getCreada_por().crea_seccion.remove(seccion);
 			}
 			
-			if (seccion.getTema_hijo() != null) {
-				seccion.getTema_hijo().setSeccion_padre(null);
+			paquete1.Tema[] lContiene_s = seccion.contiene_.toArray();
+			for(int i = 0; i < lContiene_s.length; i++) {
+				lContiene_s[i].setPertenece_a(null);
 			}
-			
 			return delete(seccion);
 		}
 		catch(Exception e) {
@@ -345,10 +345,10 @@ public class SeccionDAO {
 				seccion.getCreada_por().crea_seccion.remove(seccion);
 			}
 			
-			if (seccion.getTema_hijo() != null) {
-				seccion.getTema_hijo().setSeccion_padre(null);
+			paquete1.Tema[] lContiene_s = seccion.contiene_.toArray();
+			for(int i = 0; i < lContiene_s.length; i++) {
+				lContiene_s[i].setPertenece_a(null);
 			}
-			
 			try {
 				session.delete(seccion);
 				return true;
@@ -364,7 +364,7 @@ public class SeccionDAO {
 	
 	public static boolean refresh(paquete1.Seccion seccion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(seccion);
+			ClasesIUPersistentManager.instance().getSession().refresh(seccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -375,7 +375,7 @@ public class SeccionDAO {
 	
 	public static boolean evict(paquete1.Seccion seccion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(seccion);
+			ClasesIUPersistentManager.instance().getSession().evict(seccion);
 			return true;
 		}
 		catch (Exception e) {

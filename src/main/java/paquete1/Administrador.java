@@ -32,11 +32,11 @@ public class Administrador extends paquete1.Usuario implements Serializable {
 		else if (key == ORMConstants.KEY_ADMINISTRADOR_CREA_SECCION) {
 			return ORM_crea_seccion;
 		}
-		else if (key == ORMConstants.KEY_ADMINISTRADOR_ADMINISTRA) {
-			return ORM_administra;
-		}
 		else if (key == ORMConstants.KEY_ADMINISTRADOR_DA_PERMISOS) {
 			return ORM_da_permisos;
+		}
+		else if (key == ORMConstants.KEY_ADMINISTRADOR_ADMINISTRA) {
+			return ORM_administra;
 		}
 		
 		return null;
@@ -92,17 +92,6 @@ public class Administrador extends paquete1.Usuario implements Serializable {
 	@Transient	
 	public final paquete1.SeccionSetCollection crea_seccion = new paquete1.SeccionSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADOR_CREA_SECCION, ORMConstants.KEY_SECCION_CREADA_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	private void setORM_Administra(java.util.Set value) {
-		this.ORM_administra = value;
-	}
-	
-	private java.util.Set getORM_Administra() {
-		return ORM_administra;
-	}
-	
-	@Transient	
-	public final paquete1.UsuarioSetCollection administra = new paquete1.UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADOR_ADMINISTRA, ORMConstants.KEY_USUARIO_ADMINISTRADO, ORMConstants.KEY_MUL_MANY_TO_MANY);
-	
 	private void setORM_Da_permisos(java.util.Set value) {
 		this.ORM_da_permisos = value;
 	}
@@ -113,6 +102,17 @@ public class Administrador extends paquete1.Usuario implements Serializable {
 	
 	@Transient	
 	public final paquete1.ModeradorSetCollection da_permisos = new paquete1.ModeradorSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADOR_DA_PERMISOS, ORMConstants.KEY_MODERADOR_RECIBE_PERMISOS, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Administra(java.util.Set value) {
+		this.ORM_administra = value;
+	}
+	
+	private java.util.Set getORM_Administra() {
+		return ORM_administra;
+	}
+	
+	@Transient	
+	public final paquete1.UsuarioSetCollection administra = new paquete1.UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADOR_ADMINISTRA, ORMConstants.KEY_USUARIO_ADMINISTRADO, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public String toString() {
 		return super.toString();

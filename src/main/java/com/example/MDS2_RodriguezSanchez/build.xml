@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build">
+	<path id="build.classpath">
+		<pathelement location="classes"/>
+	</path>
+	<target name="init">
+		<mkdir dir="classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="classes"/>
+	</target>
+	<target depends="init" name="build">
+		<javac srcdir="." destdir="classes" source="1.5" target="1.5" fork="yes">
+			<classpath refid="build.classpath"/>
+			<include name="Bd_Usuario.java"/>
+			<include name="Bd_Moderador.java"/>
+			<include name="Bd_Mensaje.java"/>
+			<include name="Bd_Tema.java"/>
+			<include name="Bd_Administrador.java"/>
+			<include name="Bd_Notificacion.java"/>
+			<include name="Bd_Anuncio.java"/>
+			<include name="iUsuario_Registrado.java"/>
+			<include name="iUsuario_NoRegistrado.java"/>
+			<include name="iAdministrador.java"/>
+			<include name="iModerador.java"/>
+			<include name="iFuncionalidad_compartida_Ad_Moderador.java"/>
+			<include name="Bd_main.java"/>
+			<include name="Bd_seccion.java"/>
+			<include name="Bd_Video.java"/>
+			<include name="Bd_Foto.java"/>
+		</javac>
+	</target>
+</project>

@@ -20,8 +20,8 @@ import java.util.Properties;
 import org.hibernate.cfg.*;
 import org.hibernate.boot.MetadataSources;
 
-public class BasededatosPersistentManager extends PersistentManager {
-	private static final String PROJECT_NAME = "Basededatos";
+public class ClasesIUPersistentManager extends PersistentManager {
+	private static final String PROJECT_NAME = "ClasesIU";
 	private static PersistentManager _instance = null;
 	private static SessionType _sessionType = SessionType.THREAD_BASE;
 	private static int _timeToAlive = 60000;
@@ -29,7 +29,7 @@ public class BasededatosPersistentManager extends PersistentManager {
 	private static Properties _extraProperties = null;
 	private static String _configurationFile = null;
 	
-	private BasededatosPersistentManager() throws PersistentException {
+	private ClasesIUPersistentManager() throws PersistentException {
 		super(_connectionSetting, _sessionType, _timeToAlive, new String[] {}, _extraProperties, _configurationFile);
 		setFlushMode(FlushMode.AUTO);
 	}
@@ -37,17 +37,16 @@ public class BasededatosPersistentManager extends PersistentManager {
 	@Override
 	protected void configureMetadataSources(MetadataSources aMetadataSources) {
 		super.configureMetadataSources(aMetadataSources);
-		aMetadataSources.addAnnotatedClass(paquete1.Tema.class);
-		aMetadataSources.addAnnotatedClass(paquete1.Mensaje.class);
 		aMetadataSources.addAnnotatedClass(paquete1.Usuario.class);
-		aMetadataSources.addAnnotatedClass(paquete1.Moderador.class);
-		aMetadataSources.addAnnotatedClass(paquete1.Administrador.class);
 		aMetadataSources.addAnnotatedClass(paquete1.Media.class);
 		aMetadataSources.addAnnotatedClass(paquete1.Foto.class);
 		aMetadataSources.addAnnotatedClass(paquete1.Video.class);
-		aMetadataSources.addAnnotatedClass(paquete1.Nota.class);
+		aMetadataSources.addAnnotatedClass(paquete1.Moderador.class);
+		aMetadataSources.addAnnotatedClass(paquete1.Tema.class);
+		aMetadataSources.addAnnotatedClass(paquete1.Mensaje.class);
 		aMetadataSources.addAnnotatedClass(paquete1.Notificacion.class);
 		aMetadataSources.addAnnotatedClass(paquete1.Seccion.class);
+		aMetadataSources.addAnnotatedClass(paquete1.Administrador.class);
 	}
 	
 	public String getProjectName() {
@@ -56,7 +55,7 @@ public class BasededatosPersistentManager extends PersistentManager {
 	
 	public static synchronized final PersistentManager instance() throws PersistentException {
 		if (_instance == null) {
-			_instance = new BasededatosPersistentManager();
+			_instance = new ClasesIUPersistentManager();
 		}
 		
 		return _instance;

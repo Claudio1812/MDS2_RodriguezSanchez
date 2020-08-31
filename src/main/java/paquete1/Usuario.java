@@ -25,17 +25,20 @@ public class Usuario implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_USUARIO_ES_MODERADO) {
+		if (key == ORMConstants.KEY_USUARIO_MISTAD_CON) {
+			return ORM_mistad_con;
+		}
+		else if (key == ORMConstants.KEY_USUARIO_ES_MODERADO) {
 			return ORM_es_moderado;
 		}
 		else if (key == ORMConstants.KEY_USUARIO_ADMINISTRADO) {
 			return ORM_administrado;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_USUARIO_A_ESCRITO) {
-			return ORM_usuario_a_escrito;
+		else if (key == ORMConstants.KEY_USUARIO_USUARIO_CREA_TEMA) {
+			return ORM_usuario_crea_tema;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_USUARIO_TIENE_NOTIFICACION) {
-			return ORM_usuario_tiene_notificacion;
+		else if (key == ORMConstants.KEY_USUARIO_USUARIO_ESCRIBE) {
+			return ORM_usuario_escribe;
 		}
 		else if (key == ORMConstants.KEY_USUARIO_LE_GUSTA) {
 			return ORM_le_gusta;
@@ -43,19 +46,15 @@ public class Usuario implements Serializable {
 		else if (key == ORMConstants.KEY_USUARIO_AMIGO_DE) {
 			return ORM_amigo_de;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_USUARIO_CREA_MENSAJE) {
-			return ORM_usuario_crea_mensaje;
+		else if (key == ORMConstants.KEY_USUARIO_PUEDE_TENER) {
+			return ORM_puede_tener;
 		}
 		
 		return null;
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_USUARIO__) {
-			this._ = (paquete1.Usuario) owner;
-		}
-		
-		else if (key == ORMConstants.KEY_USUARIO_BANEADO_POR) {
+		if (key == ORMConstants.KEY_USUARIO_BANEADO_POR) {
 			this.baneado_por = (paquete1.Administrador) owner;
 		}
 	}
@@ -78,16 +77,10 @@ public class Usuario implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="PAQUETE1_USUARIO_ID_USUARIO_GENERATOR", strategy="native")	
 	private int id_usuario;
 	
-	@ManyToMany(targetEntity=paquete1.Administrador.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Administrador_Usuario2", joinColumns={ @JoinColumn(name="UsuarioId_usuario") }, inverseJoinColumns={ @JoinColumn(name="AdministradorUsuarioId_usuario") })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_administrado = new java.util.HashSet();
-	
-	@ManyToOne(targetEntity=paquete1.Usuario.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=paquete1.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="UsuarioId_usuario", referencedColumnName="Id_usuario") }, foreignKey=@ForeignKey(name="FKUsuario250901"))	
-	private paquete1.Usuario _;
+	@JoinColumns(value={ @JoinColumn(name="baneado_por", referencedColumnName="UsuarioId_usuario") }, foreignKey=@ForeignKey(name="Relacion_administrador_banea"))	
+	private paquete1.Administrador baneado_por;
 	
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
@@ -101,42 +94,49 @@ public class Usuario implements Serializable {
 	@Column(name="Contrasena", nullable=true, length=255)	
 	private String contrasena;
 	
+	@ManyToMany(targetEntity=paquete1.Usuario.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="Usuario_Usuario", joinColumns={ @JoinColumn(name="UsuarioId_usuario2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioId_usuario") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_mistad_con = new java.util.HashSet();
+	
 	@ManyToMany(targetEntity=paquete1.Moderador.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Moderador_Usuario2", joinColumns={ @JoinColumn(name="UsuarioId_usuario") }, inverseJoinColumns={ @JoinColumn(name="ModeradorUsuarioId_usuario") })	
+	@JoinTable(name="Moderador_Usuario", joinColumns={ @JoinColumn(name="UsuarioId_usuario") }, inverseJoinColumns={ @JoinColumn(name="ModeradorUsuarioId_usuario") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_moderado = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="mensaje_propietario", targetEntity=paquete1.Mensaje.class)	
+	@ManyToMany(targetEntity=paquete1.Administrador.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinTable(name="Administrador_Usuario", joinColumns={ @JoinColumn(name="UsuarioId_usuario") }, inverseJoinColumns={ @JoinColumn(name="AdministradorUsuarioId_usuario") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_usuario_a_escrito = new java.util.HashSet();
+	private java.util.Set ORM_administrado = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="notificacion_propietario", targetEntity=paquete1.Notificacion.class)	
+	@OneToMany(mappedBy="creador_tema", targetEntity=paquete1.Tema.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_usuario_tiene_notificacion = new java.util.HashSet();
+	private java.util.Set ORM_usuario_crea_tema = new java.util.HashSet();
+	
+	@OneToMany(mappedBy="mensaje_escrito_por", targetEntity=paquete1.Mensaje.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_usuario_escribe = new java.util.HashSet();
 	
 	@ManyToMany(targetEntity=paquete1.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Mensaje_Usuario2", joinColumns={ @JoinColumn(name="UsuarioId_usuario") }, inverseJoinColumns={ @JoinColumn(name="MensajeId_mensaje") })	
+	@JoinTable(name="Mensaje_Usuario", joinColumns={ @JoinColumn(name="UsuarioId_usuario") }, inverseJoinColumns={ @JoinColumn(name="MensajeId_mensaje") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_le_gusta = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="_", targetEntity=paquete1.Usuario.class)	
+	@ManyToMany(mappedBy="ORM_mistad_con", targetEntity=paquete1.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_amigo_de = new java.util.HashSet();
 	
-	@ManyToOne(targetEntity=paquete1.Administrador.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioId_usuario", referencedColumnName="UsuarioId_usuario") }, foreignKey=@ForeignKey(name="FKUsuario346868"))	
-	private paquete1.Administrador baneado_por;
-	
-	@OneToMany(mappedBy="tema_propietario", targetEntity=paquete1.Tema.class)	
+	@OneToMany(mappedBy="pertenece_a", targetEntity=paquete1.Notificacion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_usuario_crea_mensaje = new java.util.HashSet();
+	private java.util.Set ORM_puede_tener = new java.util.HashSet();
 	
 	private void setId_usuario(int value) {
 		this.id_usuario = value;
@@ -182,6 +182,17 @@ public class Usuario implements Serializable {
 		return contrasena;
 	}
 	
+	private void setORM_Mistad_con(java.util.Set value) {
+		this.ORM_mistad_con = value;
+	}
+	
+	private java.util.Set getORM_Mistad_con() {
+		return ORM_mistad_con;
+	}
+	
+	@Transient	
+	public final paquete1.UsuarioSetCollection mistad_con = new paquete1.UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_MISTAD_CON, ORMConstants.KEY_USUARIO_AMIGO_DE, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
 	private void setORM_Es_moderado(java.util.Set value) {
 		this.ORM_es_moderado = value;
 	}
@@ -204,51 +215,27 @@ public class Usuario implements Serializable {
 	@Transient	
 	public final paquete1.AdministradorSetCollection administrado = new paquete1.AdministradorSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_ADMINISTRADO, ORMConstants.KEY_ADMINISTRADOR_ADMINISTRA, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	private void setORM_Usuario_a_escrito(java.util.Set value) {
-		this.ORM_usuario_a_escrito = value;
+	private void setORM_Usuario_crea_tema(java.util.Set value) {
+		this.ORM_usuario_crea_tema = value;
 	}
 	
-	private java.util.Set getORM_Usuario_a_escrito() {
-		return ORM_usuario_a_escrito;
-	}
-	
-	@Transient	
-	public final paquete1.MensajeSetCollection usuario_a_escrito = new paquete1.MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_USUARIO_A_ESCRITO, ORMConstants.KEY_MENSAJE_MENSAJE_PROPIETARIO, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	public void set_(paquete1.Usuario value) {
-		if (_ != null) {
-			_.amigo_de.remove(this);
-		}
-		if (value != null) {
-			value.amigo_de.add(this);
-		}
-	}
-	
-	public paquete1.Usuario get_() {
-		return _;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM__(paquete1.Usuario value) {
-		this._ = value;
-	}
-	
-	private paquete1.Usuario getORM__() {
-		return _;
-	}
-	
-	private void setORM_Usuario_tiene_notificacion(java.util.Set value) {
-		this.ORM_usuario_tiene_notificacion = value;
-	}
-	
-	private java.util.Set getORM_Usuario_tiene_notificacion() {
-		return ORM_usuario_tiene_notificacion;
+	private java.util.Set getORM_Usuario_crea_tema() {
+		return ORM_usuario_crea_tema;
 	}
 	
 	@Transient	
-	public final paquete1.NotificacionSetCollection usuario_tiene_notificacion = new paquete1.NotificacionSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_USUARIO_TIENE_NOTIFICACION, ORMConstants.KEY_NOTIFICACION_NOTIFICACION_PROPIETARIO, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final paquete1.TemaSetCollection usuario_crea_tema = new paquete1.TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_USUARIO_CREA_TEMA, ORMConstants.KEY_TEMA_CREADOR_TEMA, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Usuario_escribe(java.util.Set value) {
+		this.ORM_usuario_escribe = value;
+	}
+	
+	private java.util.Set getORM_Usuario_escribe() {
+		return ORM_usuario_escribe;
+	}
+	
+	@Transient	
+	public final paquete1.MensajeSetCollection usuario_escribe = new paquete1.MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_USUARIO_ESCRIBE, ORMConstants.KEY_MENSAJE_MENSAJE_ESCRITO_POR, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Le_gusta(java.util.Set value) {
 		this.ORM_le_gusta = value;
@@ -259,18 +246,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final paquete1.MensajeSetCollection le_gusta = new paquete1.MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_LE_GUSTA, ORMConstants.KEY_MENSAJE_ES_GUSTADO, ORMConstants.KEY_MUL_MANY_TO_MANY);
-	
-	private void setORM_Amigo_de(java.util.Set value) {
-		this.ORM_amigo_de = value;
-	}
-	
-	private java.util.Set getORM_Amigo_de() {
-		return ORM_amigo_de;
-	}
-	
-	@Transient	
-	public final paquete1.UsuarioSetCollection amigo_de = new paquete1.UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_AMIGO_DE, ORMConstants.KEY_USUARIO__, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final paquete1.MensajeSetCollection le_gusta = new paquete1.MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_LE_GUSTA, ORMConstants.KEY_MENSAJE_GUSTADO_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public void setBaneado_por(paquete1.Administrador value) {
 		if (baneado_por != null) {
@@ -296,16 +272,27 @@ public class Usuario implements Serializable {
 		return baneado_por;
 	}
 	
-	private void setORM_Usuario_crea_mensaje(java.util.Set value) {
-		this.ORM_usuario_crea_mensaje = value;
+	private void setORM_Amigo_de(java.util.Set value) {
+		this.ORM_amigo_de = value;
 	}
 	
-	private java.util.Set getORM_Usuario_crea_mensaje() {
-		return ORM_usuario_crea_mensaje;
+	private java.util.Set getORM_Amigo_de() {
+		return ORM_amigo_de;
 	}
 	
 	@Transient	
-	public final paquete1.TemaSetCollection usuario_crea_mensaje = new paquete1.TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_USUARIO_CREA_MENSAJE, ORMConstants.KEY_TEMA_TEMA_PROPIETARIO, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final paquete1.UsuarioSetCollection amigo_de = new paquete1.UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_AMIGO_DE, ORMConstants.KEY_USUARIO_MISTAD_CON, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	
+	private void setORM_Puede_tener(java.util.Set value) {
+		this.ORM_puede_tener = value;
+	}
+	
+	private java.util.Set getORM_Puede_tener() {
+		return ORM_puede_tener;
+	}
+	
+	@Transient	
+	public final paquete1.NotificacionSetCollection puede_tener = new paquete1.NotificacionSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_PUEDE_TENER, ORMConstants.KEY_NOTIFICACION_PERTENECE_A, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getId_usuario());

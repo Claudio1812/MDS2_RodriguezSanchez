@@ -13,9 +13,9 @@
      <vaadin-horizontal-layout size-full>
       <vaadin-vertical-layout style-name="margen_top_2" size-full margin="false">
        <vaadin-horizontal-split-panel height-auto split-position="20%">
-        <vaadin-panel style-name="no_borde">
+        <vaadin-panel style-name="no_borde" _id="boton_menuDefecto">
          <vaadin-vertical-layout width-auto height-full>
-          <vaadin-label style-name="texto_centrado" height-full plain-text>
+          <vaadin-label style-name="texto_centrado" height-full plain-text _id="foro_nombre_label">
             Foro Nombre 
           </vaadin-label>
          </vaadin-vertical-layout>
@@ -28,7 +28,7 @@
           <vaadin-button style-name="fondo_botones_form" plain-text _id="iniciar_sesion">
             Iniciar sesion 
           </vaadin-button>
-          <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+          <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_registrarse">
             Registrarse 
           </vaadin-button>
          </vaadin-horizontal-layout>
@@ -36,39 +36,37 @@
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-split-panel locked height="50%" split-position="15%">
         <vaadin-vertical-layout size-full margin="false">
-         <vaadin-panel style-name="no_borde" width="80%" height-full>
+         <vaadin-panel style-name="no_borde" width="80%" height-full _id="boton_buscar">
           <vaadin-label style-name="texto_centrado margen_left_2" plain-text>
             Buscar 
           </vaadin-label>
          </vaadin-panel>
         </vaadin-vertical-layout>
-        <vaadin-text-field style-name="no_borde" width="50%" height-full></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" width="50%" height-full _id="textfield_buscar"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
       </vaadin-vertical-layout>
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout size-full>
-      <vaadin-horizontal-split-panel locked split-position="60%">
-       <vaadin-form-layout style-name="margen_rigth_3" spacing="false" width="90%" height-full margin-left margin-right margin-top="false">
-        <vaadin-panel style-name="texto_medio no_borde" size-auto>
-         <vaadin-label style-name="texto_medio margen_minimo no_borde" plain-text>
-           Secciones 
-         </vaadin-label>
-        </vaadin-panel>
-        <vaadin-list-select rows="13" style-name="no_borde" size-full data-item-type="java.lang.String">
-         <option item="Option1">Option 1</option>
-         <option item="Option2">Option 2</option>
-         <option item="Option3">Option 3</option>
-        </vaadin-list-select>
-        <vaadin-horizontal-layout style-name="margen_top_2" width-full>
-         <vaadin-label style-name="fondo_blanco" plain-text :middle :right></vaadin-label>
-         <vaadin-button style-name="fondo_botones_form" plain-text :middle :right>
-           Antiguedad 
-         </vaadin-button>
-         <vaadin-button style-name="fondo_botones_form" plain-text :right>
-           Valoracion 
-         </vaadin-button>
-        </vaadin-horizontal-layout>
-       </vaadin-form-layout>
+      <vaadin-horizontal-split-panel locked split-position="80%">
+       <vaadin-panel style-name="fondo_default" width="90%" height-full>
+        <vaadin-form-layout style-name="margen_rigth_3" spacing="false" width="90%" height="140%" margin-left margin-right margin-top="false" _id="formLayout_interfaz">
+         <vaadin-panel style-name="texto_medio no_borde" size-auto>
+          <vaadin-label style-name="texto_medio margen_minimo no_borde" plain-text _id="label_actual">
+            Secciones 
+          </vaadin-label>
+         </vaadin-panel>
+         <vaadin-vertical-layout height="74px" _id="lista_secciones_entrada"></vaadin-vertical-layout>
+         <vaadin-horizontal-layout style-name="margen_top_2" width-full>
+          <vaadin-label style-name="fondo_blanco" plain-text :middle :right></vaadin-label>
+          <vaadin-button style-name="fondo_botones_form" plain-text _id="boton_antiguedad" :middle :right>
+            Antiguedad 
+          </vaadin-button>
+          <vaadin-button style-name="fondo_botones_form" plain-text _id="boton_valoracion" :right>
+            Valoracion 
+          </vaadin-button>
+         </vaadin-horizontal-layout>
+        </vaadin-form-layout>
+       </vaadin-panel>
        <vaadin-vertical-layout size-full>
         <vaadin-image size-full></vaadin-image>
        </vaadin-vertical-layout>

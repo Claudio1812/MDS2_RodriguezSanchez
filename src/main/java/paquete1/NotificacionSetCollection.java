@@ -70,6 +70,10 @@ public class NotificacionSetCollection extends org.orm.util.ORMSet {
 	/**
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
+	 * <li>id_nota</li>
+	 * <li>titulo</li>
+	 * <li>cuerpo</li>
+	 * <li>motivo</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -80,6 +84,10 @@ public class NotificacionSetCollection extends org.orm.util.ORMSet {
 	/**
 	 * Return an sorted array containing all of the persistent objects in ORMSet
 	 * @param propertyName Name of the property for sorting:<ul>
+	 * <li>id_nota</li>
+	 * <li>titulo</li>
+	 * <li>cuerpo</li>
+	 * <li>motivo</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array
@@ -89,7 +97,7 @@ public class NotificacionSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return BasededatosPersistentManager.instance();
+		return ClasesIUPersistentManager.instance();
 	}
 	
 }

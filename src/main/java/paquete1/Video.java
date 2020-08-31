@@ -25,27 +25,6 @@ public class Video extends paquete1.Media implements Serializable {
 	public Video() {
 	}
 	
-	@OneToOne(mappedBy="mensaje_tiene_video", targetEntity=paquete1.Mensaje.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	private paquete1.Mensaje mensaje_contenedor_video;
-	
-	public void setMensaje_contenedor_video(paquete1.Mensaje value) {
-		if (this.mensaje_contenedor_video != value) {
-			paquete1.Mensaje lmensaje_contenedor_video = this.mensaje_contenedor_video;
-			this.mensaje_contenedor_video = value;
-			if (value != null) {
-				mensaje_contenedor_video.setMensaje_tiene_video(this);
-			}
-			if (lmensaje_contenedor_video != null && lmensaje_contenedor_video.getMensaje_tiene_video() == this) {
-				lmensaje_contenedor_video.setMensaje_tiene_video(null);
-			}
-		}
-	}
-	
-	public paquete1.Mensaje getMensaje_contenedor_video() {
-		return mensaje_contenedor_video;
-	}
-	
 	public String toString() {
 		return super.toString();
 	}

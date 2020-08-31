@@ -20,75 +20,57 @@ import org.orm.criteria.*;
 
 public class TemaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id_tema;
-	public final IntegerExpression tema_propietarioId;
-	public final AssociationExpression tema_propietario;
-	public final IntegerExpression seccion_padreId;
-	public final AssociationExpression seccion_padre;
+	public final IntegerExpression pertenece_aId;
+	public final AssociationExpression pertenece_a;
+	public final IntegerExpression creador_temaId;
+	public final AssociationExpression creador_tema;
 	public final StringExpression descripcion;
 	public final StringExpression fecha_creacion;
 	public final IntegerExpression me_gusta;
 	public final IntegerExpression participantes;
-	public final CollectionExpression publico;
-	public final CollectionExpression tema_contiene;
-	public final CollectionExpression oculto;
-	public final CollectionExpression privado;
+	public final StringExpression titulo;
+	public final CollectionExpression tema_tiene_men;
 	
 	public TemaDetachedCriteria() {
 		super(paquete1.Tema.class, paquete1.TemaCriteria.class);
 		id_tema = new IntegerExpression("id_tema", this.getDetachedCriteria());
-		tema_propietarioId = new IntegerExpression("tema_propietario.id_usuario", this.getDetachedCriteria());
-		tema_propietario = new AssociationExpression("tema_propietario", this.getDetachedCriteria());
-		seccion_padreId = new IntegerExpression("seccion_padre.id_tema", this.getDetachedCriteria());
-		seccion_padre = new AssociationExpression("seccion_padre", this.getDetachedCriteria());
+		pertenece_aId = new IntegerExpression("pertenece_a.id_seccion", this.getDetachedCriteria());
+		pertenece_a = new AssociationExpression("pertenece_a", this.getDetachedCriteria());
+		creador_temaId = new IntegerExpression("creador_tema.id_usuario", this.getDetachedCriteria());
+		creador_tema = new AssociationExpression("creador_tema", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		fecha_creacion = new StringExpression("fecha_creacion", this.getDetachedCriteria());
 		me_gusta = new IntegerExpression("me_gusta", this.getDetachedCriteria());
 		participantes = new IntegerExpression("participantes", this.getDetachedCriteria());
-		publico = new CollectionExpression("ORM_publico", this.getDetachedCriteria());
-		tema_contiene = new CollectionExpression("ORM_tema_contiene", this.getDetachedCriteria());
-		oculto = new CollectionExpression("ORM_oculto", this.getDetachedCriteria());
-		privado = new CollectionExpression("ORM_privado", this.getDetachedCriteria());
+		titulo = new StringExpression("titulo", this.getDetachedCriteria());
+		tema_tiene_men = new CollectionExpression("ORM_tema_tiene_men", this.getDetachedCriteria());
 	}
 	
 	public TemaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, paquete1.TemaCriteria.class);
 		id_tema = new IntegerExpression("id_tema", this.getDetachedCriteria());
-		tema_propietarioId = new IntegerExpression("tema_propietario.id_usuario", this.getDetachedCriteria());
-		tema_propietario = new AssociationExpression("tema_propietario", this.getDetachedCriteria());
-		seccion_padreId = new IntegerExpression("seccion_padre.id_tema", this.getDetachedCriteria());
-		seccion_padre = new AssociationExpression("seccion_padre", this.getDetachedCriteria());
+		pertenece_aId = new IntegerExpression("pertenece_a.id_seccion", this.getDetachedCriteria());
+		pertenece_a = new AssociationExpression("pertenece_a", this.getDetachedCriteria());
+		creador_temaId = new IntegerExpression("creador_tema.id_usuario", this.getDetachedCriteria());
+		creador_tema = new AssociationExpression("creador_tema", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		fecha_creacion = new StringExpression("fecha_creacion", this.getDetachedCriteria());
 		me_gusta = new IntegerExpression("me_gusta", this.getDetachedCriteria());
 		participantes = new IntegerExpression("participantes", this.getDetachedCriteria());
-		publico = new CollectionExpression("ORM_publico", this.getDetachedCriteria());
-		tema_contiene = new CollectionExpression("ORM_tema_contiene", this.getDetachedCriteria());
-		oculto = new CollectionExpression("ORM_oculto", this.getDetachedCriteria());
-		privado = new CollectionExpression("ORM_privado", this.getDetachedCriteria());
+		titulo = new StringExpression("titulo", this.getDetachedCriteria());
+		tema_tiene_men = new CollectionExpression("ORM_tema_tiene_men", this.getDetachedCriteria());
 	}
 	
-	public UsuarioDetachedCriteria createTema_propietarioCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("tema_propietario"));
+	public SeccionDetachedCriteria createPertenece_aCriteria() {
+		return new SeccionDetachedCriteria(createCriteria("pertenece_a"));
 	}
 	
-	public SeccionDetachedCriteria createSeccion_padreCriteria() {
-		return new SeccionDetachedCriteria(createCriteria("seccion_padre"));
+	public UsuarioDetachedCriteria createCreador_temaCriteria() {
+		return new UsuarioDetachedCriteria(createCriteria("creador_tema"));
 	}
 	
-	public TemaDetachedCriteria createPublicoCriteria() {
-		return new TemaDetachedCriteria(createCriteria("ORM_publico"));
-	}
-	
-	public MensajeDetachedCriteria createTema_contieneCriteria() {
-		return new MensajeDetachedCriteria(createCriteria("ORM_tema_contiene"));
-	}
-	
-	public TemaDetachedCriteria createOcultoCriteria() {
-		return new TemaDetachedCriteria(createCriteria("ORM_oculto"));
-	}
-	
-	public TemaDetachedCriteria createPrivadoCriteria() {
-		return new TemaDetachedCriteria(createCriteria("ORM_privado"));
+	public MensajeDetachedCriteria createTema_tiene_menCriteria() {
+		return new MensajeDetachedCriteria(createCriteria("ORM_tema_tiene_men"));
 	}
 	
 	public Tema uniqueTema(PersistentSession session) {

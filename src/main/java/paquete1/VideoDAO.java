@@ -21,7 +21,7 @@ import java.util.List;
 public class VideoDAO {
 	public static Video loadVideoByORMID(int id_media) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadVideoByORMID(session, id_media);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class VideoDAO {
 	
 	public static Video getVideoByORMID(int id_media) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getVideoByORMID(session, id_media);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class VideoDAO {
 	
 	public static Video loadVideoByORMID(int id_media, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadVideoByORMID(session, id_media, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class VideoDAO {
 	
 	public static Video getVideoByORMID(int id_media, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getVideoByORMID(session, id_media, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class VideoDAO {
 	
 	public static List queryVideo(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryVideo(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class VideoDAO {
 	
 	public static List queryVideo(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryVideo(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class VideoDAO {
 	
 	public static Video[] listVideoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listVideoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class VideoDAO {
 	
 	public static Video[] listVideoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listVideoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class VideoDAO {
 	
 	public static Video loadVideoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadVideoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class VideoDAO {
 	
 	public static Video loadVideoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadVideoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class VideoDAO {
 	
 	public static java.util.Iterator iterateVideoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateVideoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class VideoDAO {
 	
 	public static java.util.Iterator iterateVideoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateVideoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class VideoDAO {
 	
 	public static boolean save(paquete1.Video video) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(video);
+			ClasesIUPersistentManager.instance().saveObject(video);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class VideoDAO {
 	
 	public static boolean delete(paquete1.Video video) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(video);
+			ClasesIUPersistentManager.instance().deleteObject(video);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,42 +321,9 @@ public class VideoDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(paquete1.Video video)throws PersistentException {
-		try {
-			if (video.getMensaje_contenedor_video() != null) {
-				video.getMensaje_contenedor_video().setMensaje_tiene_video(null);
-			}
-			
-			return delete(video);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			throw new PersistentException(e);
-		}
-	}
-	
-	public static boolean deleteAndDissociate(paquete1.Video video, org.orm.PersistentSession session)throws PersistentException {
-		try {
-			if (video.getMensaje_contenedor_video() != null) {
-				video.getMensaje_contenedor_video().setMensaje_tiene_video(null);
-			}
-			
-			try {
-				session.delete(video);
-				return true;
-			} catch (Exception e) {
-				return false;
-			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			throw new PersistentException(e);
-		}
-	}
-	
 	public static boolean refresh(paquete1.Video video) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(video);
+			ClasesIUPersistentManager.instance().getSession().refresh(video);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +334,7 @@ public class VideoDAO {
 	
 	public static boolean evict(paquete1.Video video) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(video);
+			ClasesIUPersistentManager.instance().getSession().evict(video);
 			return true;
 		}
 		catch (Exception e) {

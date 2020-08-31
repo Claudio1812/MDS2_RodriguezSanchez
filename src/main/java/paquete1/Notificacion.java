@@ -18,16 +18,17 @@ import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Notificacion")
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorValue("Notificacion")
-@PrimaryKeyJoinColumn(name="NotaId_nota", referencedColumnName="Id_nota")
-public class Notificacion extends paquete1.Nota implements Serializable {
+public class Notificacion implements Serializable {
 	public Notificacion() {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_NOTIFICACION_NOTIFICACION_PROPIETARIO) {
-			this.notificacion_propietario = (paquete1.Usuario) owner;
+		if (key == ORMConstants.KEY_NOTIFICACION_PERTENECE_A) {
+			this.pertenece_a = (paquete1.Usuario) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_NOTIFICACION_REFERENCIA_A) {
+			this.referencia_a = (paquete1.Mensaje) owner;
 		}
 	}
 	
@@ -39,37 +40,117 @@ public class Notificacion extends paquete1.Nota implements Serializable {
 		
 	};
 	
+	@Column(name="Id_nota", nullable=false, length=10)	
+	@Id	
+	@GeneratedValue(generator="PAQUETE1_NOTIFICACION_ID_NOTA_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="PAQUETE1_NOTIFICACION_ID_NOTA_GENERATOR", strategy="native")	
+	private int id_nota;
+	
 	@ManyToOne(targetEntity=paquete1.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="UsuarioId_usuario", referencedColumnName="Id_usuario") }, foreignKey=@ForeignKey(name="FKNotificaci958234"))	
-	private paquete1.Usuario notificacion_propietario;
+	@JoinColumns(value={ @JoinColumn(name="usuario_propietario", referencedColumnName="Id_usuario") }, foreignKey=@ForeignKey(name="FKNotificaci833069"))	
+	private paquete1.Usuario pertenece_a;
 	
-	public void setNotificacion_propietario(paquete1.Usuario value) {
-		if (notificacion_propietario != null) {
-			notificacion_propietario.usuario_tiene_notificacion.remove(this);
+	@ManyToOne(targetEntity=paquete1.Mensaje.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="mensaje_referencia", referencedColumnName="Id_mensaje") }, foreignKey=@ForeignKey(name="FKNotificaci406426"))	
+	private paquete1.Mensaje referencia_a;
+	
+	@Column(name="Titulo", nullable=true, length=255)	
+	private String titulo;
+	
+	@Column(name="Cuerpo", nullable=true, length=255)	
+	private String cuerpo;
+	
+	@Column(name="Motivo", nullable=true, length=255)	
+	private String motivo;
+	
+	private void setId_nota(int value) {
+		this.id_nota = value;
+	}
+	
+	public int getId_nota() {
+		return id_nota;
+	}
+	
+	public int getORMID() {
+		return getId_nota();
+	}
+	
+	public void setTitulo(String value) {
+		this.titulo = value;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public void setCuerpo(String value) {
+		this.cuerpo = value;
+	}
+	
+	public String getCuerpo() {
+		return cuerpo;
+	}
+	
+	public void setMotivo(String value) {
+		this.motivo = value;
+	}
+	
+	public String getMotivo() {
+		return motivo;
+	}
+	
+	public void setPertenece_a(paquete1.Usuario value) {
+		if (pertenece_a != null) {
+			pertenece_a.puede_tener.remove(this);
 		}
 		if (value != null) {
-			value.usuario_tiene_notificacion.add(this);
+			value.puede_tener.add(this);
 		}
 	}
 	
-	public paquete1.Usuario getNotificacion_propietario() {
-		return notificacion_propietario;
+	public paquete1.Usuario getPertenece_a() {
+		return pertenece_a;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Notificacion_propietario(paquete1.Usuario value) {
-		this.notificacion_propietario = value;
+	public void setORM_Pertenece_a(paquete1.Usuario value) {
+		this.pertenece_a = value;
 	}
 	
-	private paquete1.Usuario getORM_Notificacion_propietario() {
-		return notificacion_propietario;
+	private paquete1.Usuario getORM_Pertenece_a() {
+		return pertenece_a;
+	}
+	
+	public void setReferencia_a(paquete1.Mensaje value) {
+		if (referencia_a != null) {
+			referencia_a.referenciado_por.remove(this);
+		}
+		if (value != null) {
+			value.referenciado_por.add(this);
+		}
+	}
+	
+	public paquete1.Mensaje getReferencia_a() {
+		return referencia_a;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Referencia_a(paquete1.Mensaje value) {
+		this.referencia_a = value;
+	}
+	
+	private paquete1.Mensaje getORM_Referencia_a() {
+		return referencia_a;
 	}
 	
 	public String toString() {
-		return super.toString();
+		return String.valueOf(getId_nota());
 	}
 	
 }

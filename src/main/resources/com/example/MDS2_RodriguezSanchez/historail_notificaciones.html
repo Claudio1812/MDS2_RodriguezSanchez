@@ -14,13 +14,13 @@
       <vaadin-horizontal-layout style-name="margen_rigth_2 margen_left_2" height-full>
        <vaadin-image style-name="margen_right_2" width="120px" height-full :middle :center></vaadin-image>
        <vaadin-vertical-layout style-name="texto_normal" size-auto margin="false" :middle :center>
-        <vaadin-label style-name="texto_normal" plain-text>
+        <vaadin-label style-name="texto_normal" plain-text _id="nombre_user_historial_notificaciones">
           Nombre_usuario_vab 
         </vaadin-label>
-        <vaadin-label plain-text>
+        <vaadin-label plain-text _id="amigos_var_historial_notificaciones">
           Amigos: var() 
         </vaadin-label>
-        <vaadin-label plain-text>
+        <vaadin-label plain-text _id="cantidad_mensajes_var_historial">
           Mensajes online: var() 
         </vaadin-label>
        </vaadin-vertical-layout>
@@ -28,42 +28,38 @@
      </vaadin-panel>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-split-panel locked split-position="60%">
-     <vaadin-form-layout size-full margin="false">
-      <vaadin-panel style-name="no_borde texto_centrado" size-auto>
-       <vaadin-label style-name="margen_left_2 margen_rigth_2" responsive plain-text>
-         Historial notificaciones 
-       </vaadin-label>
-      </vaadin-panel>
-      <vaadin-panel style-name="fondo_tres" width="95%" height-full>
-       <vaadin-list-select style-name="fondo_dos margen_bottom_2 margen_top_2" width-full height="90%" data-item-type="java.lang.String">
-        <option item="Option1">Option 1</option>
-        <option item="Option2">Option 2</option>
-        <option item="Option3">Option 3</option>
-       </vaadin-list-select>
-      </vaadin-panel>
-      <vaadin-horizontal-layout width="50%">
-       <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
-       <vaadin-button style-name="no_borde fondo_botones_form" plain-text>
-         Buscar 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-     </vaadin-form-layout>
-     <vaadin-vertical-layout size-full>
-      <vaadin-horizontal-layout width-full>
-       <vaadin-vertical-layout>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
-          Responder 
+     <vaadin-panel style-name="fondo_default" height="90%">
+      <vaadin-form-layout size-full margin="false" _id="form_layout_lista">
+       <vaadin-panel style-name="no_borde texto_centrado" size-auto>
+        <vaadin-label style-name="margen_left_2 margen_rigth_2" responsive plain-text>
+          Historial notificaciones 
+        </vaadin-label>
+       </vaadin-panel>
+       <vaadin-vertical-layout _id="lista_items_notificaciones"></vaadin-vertical-layout>
+       <vaadin-horizontal-layout width="50%">
+        <vaadin-text-field visible="false" style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-button visible="false" style-name="no_borde fondo_botones_form" plain-text>
+          Buscar 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+       </vaadin-horizontal-layout>
+      </vaadin-form-layout>
+     </vaadin-panel>
+     <vaadin-vertical-layout width="100.12%" height-full>
+      <vaadin-horizontal-layout>
+       <vaadin-vertical-layout>
+        <vaadin-button visible="false" style-name="fondo_botones_form" width-full plain-text _id="boton_atender">
+          Atender 
+        </vaadin-button>
+        <vaadin-button visible="false" style-name="fondo_botones_form" width-full plain-text _id="boton_archivar">
           Archivar 
         </vaadin-button>
        </vaadin-vertical-layout>
        <vaadin-vertical-layout>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+        <vaadin-button visible="false" style-name="fondo_botones_form" width-full plain-text _id="boton_denunciar">
           Denunciar 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
-          Salir 
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="boton_volver">
+          Volver 
         </vaadin-button>
        </vaadin-vertical-layout>
       </vaadin-horizontal-layout>

@@ -22,18 +22,26 @@ public class Seccion implements Serializable {
 	public Seccion() {
 	}
 	
-	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_SECCION_TEMA_HIJO) {
-			this.tema_hijo = (paquete1.Tema) owner;
+	private java.util.Set this_getSet (int key) {
+		if (key == ORMConstants.KEY_SECCION_CONTIENE_) {
+			return ORM_contiene_;
 		}
 		
-		else if (key == ORMConstants.KEY_SECCION_CREADA_POR) {
+		return null;
+	}
+	
+	private void this_setOwner(Object owner, int key) {
+		if (key == ORMConstants.KEY_SECCION_CREADA_POR) {
 			this.creada_por = (paquete1.Administrador) owner;
 		}
 	}
 	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
 		public void setOwner(Object owner, int key) {
 			this_setOwner(owner, key);
 		}
@@ -48,16 +56,22 @@ public class Seccion implements Serializable {
 	
 	@ManyToOne(targetEntity=paquete1.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioId_usuario2", referencedColumnName="UsuarioId_usuario") }, foreignKey=@ForeignKey(name="FKSeccion300294"))	
+	@JoinColumns(value={ @JoinColumn(name="admin_creador", referencedColumnName="UsuarioId_usuario") }, foreignKey=@ForeignKey(name="relacion_seccion_admin_crear"))	
 	private paquete1.Administrador creada_por;
-	
-	@OneToOne(targetEntity=paquete1.Tema.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="TemaId_tema2", referencedColumnName="Id_tema", nullable=false) }, foreignKey=@ForeignKey(name="FKSeccion720311"))	
-	private paquete1.Tema tema_hijo;
 	
 	@Column(name="Fecha_creacion", nullable=true, length=255)	
 	private String fecha_creacion;
+	
+	@Column(name="Titulo", nullable=true, length=255)	
+	private String Titulo;
+	
+	@Column(name="Descripcion", nullable=true, length=255)	
+	private String Descripcion;
+	
+	@OneToMany(mappedBy="pertenece_a", targetEntity=paquete1.Tema.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_contiene_ = new java.util.HashSet();
 	
 	private void setId_seccion(int value) {
 		this.id_seccion = value;
@@ -79,22 +93,32 @@ public class Seccion implements Serializable {
 		return fecha_creacion;
 	}
 	
-	public void setTema_hijo(paquete1.Tema value) {
-		if (this.tema_hijo != value) {
-			paquete1.Tema ltema_hijo = this.tema_hijo;
-			this.tema_hijo = value;
-			if (value != null) {
-				tema_hijo.setSeccion_padre(this);
-			}
-			if (ltema_hijo != null && ltema_hijo.getSeccion_padre() == this) {
-				ltema_hijo.setSeccion_padre(null);
-			}
-		}
+	public void setTitulo(String value) {
+		this.Titulo = value;
 	}
 	
-	public paquete1.Tema getTema_hijo() {
-		return tema_hijo;
+	public String getTitulo() {
+		return Titulo;
 	}
+	
+	public void setDescripcion(String value) {
+		this.Descripcion = value;
+	}
+	
+	public String getDescripcion() {
+		return Descripcion;
+	}
+	
+	private void setORM_Contiene_(java.util.Set value) {
+		this.ORM_contiene_ = value;
+	}
+	
+	private java.util.Set getORM_Contiene_() {
+		return ORM_contiene_;
+	}
+	
+	@Transient	
+	public final paquete1.TemaSetCollection contiene_ = new paquete1.TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_SECCION_CONTIENE_, ORMConstants.KEY_TEMA_PERTENECE_A, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public void setCreada_por(paquete1.Administrador value) {
 		if (creada_por != null) {
@@ -118,6 +142,11 @@ public class Seccion implements Serializable {
 	
 	private paquete1.Administrador getORM_Creada_por() {
 		return creada_por;
+	}
+	
+	public void EliminarSeccion(int int_Seccion) {
+		//TODO: Implement Method
+		throw new UnsupportedOperationException();
 	}
 	
 	public String toString() {

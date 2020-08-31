@@ -37,7 +37,7 @@ public class FotoCriteria extends AbstractORMCriteria {
 	}
 	
 	public FotoCriteria() throws PersistentException {
-		this(BasededatosPersistentManager.instance().getSession());
+		this(ClasesIUPersistentManager.instance().getSession());
 	}
 	
 	public Foto uniqueFoto() {

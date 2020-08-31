@@ -22,23 +22,20 @@
         Titulo 
       </vaadin-label>
      </vaadin-panel>
-     <vaadin-text-field style-name="no_borde" width="50%"></vaadin-text-field>
+     <vaadin-text-field style-name="no_borde" width="50%" _id="texto_nuevo_tema"></vaadin-text-field>
      <vaadin-panel style-name="no_borde texto_centrado margen_top_2" width="15%">
       <vaadin-label style-name="margen_left_2" plain-text>
         Descripcion 
       </vaadin-label>
      </vaadin-panel>
-     <vaadin-text-area style-name="no_borde" width="50%"></vaadin-text-area>
+     <vaadin-text-area style-name="no_borde" width="50%" _id="descrpcion_tema_nuevo"></vaadin-text-area>
      <vaadin-horizontal-layout width="50%" height-full>
-      <vaadin-button style-name="no_borde" plain-text>
-        Adjuntar media 
-      </vaadin-button>
+      <vaadin-label plain-text></vaadin-label>
       <vaadin-horizontal-layout spacing="false" size-full>
-       <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
-       <vaadin-button style-name="no_borde" plain-text>
+       <vaadin-button style-name="fondo_botones_form no_borde margen_right_2" plain-text _id="boton_cancelar">
          Cancelar 
        </vaadin-button>
-       <vaadin-button style-name="no_borde" plain-text :middle :right>
+       <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_subir" :middle :right>
          Subir 
        </vaadin-button>
       </vaadin-horizontal-layout>

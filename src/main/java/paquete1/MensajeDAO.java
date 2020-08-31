@@ -21,7 +21,7 @@ import java.util.List;
 public class MensajeDAO {
 	public static Mensaje loadMensajeByORMID(int id_mensaje) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMensajeByORMID(session, id_mensaje);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class MensajeDAO {
 	
 	public static Mensaje getMensajeByORMID(int id_mensaje) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getMensajeByORMID(session, id_mensaje);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class MensajeDAO {
 	
 	public static Mensaje loadMensajeByORMID(int id_mensaje, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMensajeByORMID(session, id_mensaje, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class MensajeDAO {
 	
 	public static Mensaje getMensajeByORMID(int id_mensaje, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getMensajeByORMID(session, id_mensaje, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class MensajeDAO {
 	
 	public static List queryMensaje(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryMensaje(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class MensajeDAO {
 	
 	public static List queryMensaje(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryMensaje(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class MensajeDAO {
 	
 	public static Mensaje[] listMensajeByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listMensajeByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class MensajeDAO {
 	
 	public static Mensaje[] listMensajeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listMensajeByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class MensajeDAO {
 	
 	public static Mensaje loadMensajeByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMensajeByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class MensajeDAO {
 	
 	public static Mensaje loadMensajeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMensajeByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class MensajeDAO {
 	
 	public static java.util.Iterator iterateMensajeByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateMensajeByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class MensajeDAO {
 	
 	public static java.util.Iterator iterateMensajeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateMensajeByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class MensajeDAO {
 	
 	public static boolean save(paquete1.Mensaje mensaje) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(mensaje);
+			ClasesIUPersistentManager.instance().saveObject(mensaje);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class MensajeDAO {
 	
 	public static boolean delete(paquete1.Mensaje mensaje) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(mensaje);
+			ClasesIUPersistentManager.instance().deleteObject(mensaje);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,21 +323,29 @@ public class MensajeDAO {
 	
 	public static boolean deleteAndDissociate(paquete1.Mensaje mensaje)throws PersistentException {
 		try {
-			if (mensaje.getMensaje_propietario() != null) {
-				mensaje.getMensaje_propietario().usuario_a_escrito.remove(mensaje);
+			if (mensaje.getRespuesta_de() != null) {
+				mensaje.getRespuesta_de().respondido_por.remove(mensaje);
 			}
 			
-			if (mensaje.getMensaje_tiene_video() != null) {
-				mensaje.getMensaje_tiene_video().setMensaje_contenedor_video(null);
+			if (mensaje.getEsta_en() != null) {
+				mensaje.getEsta_en().tema_tiene_men.remove(mensaje);
 			}
 			
-			if (mensaje.getTema_pertenece() != null) {
-				mensaje.getTema_pertenece().tema_contiene.remove(mensaje);
+			if (mensaje.getMensaje_escrito_por() != null) {
+				mensaje.getMensaje_escrito_por().usuario_escribe.remove(mensaje);
 			}
 			
-			paquete1.Usuario[] lEs_gustados = mensaje.es_gustado.toArray();
-			for(int i = 0; i < lEs_gustados.length; i++) {
-				lEs_gustados[i].le_gusta.remove(mensaje);
+			paquete1.Mensaje[] lRespondido_pors = mensaje.respondido_por.toArray();
+			for(int i = 0; i < lRespondido_pors.length; i++) {
+				lRespondido_pors[i].setRespuesta_de(null);
+			}
+			paquete1.Notificacion[] lReferenciado_pors = mensaje.referenciado_por.toArray();
+			for(int i = 0; i < lReferenciado_pors.length; i++) {
+				lReferenciado_pors[i].setReferencia_a(null);
+			}
+			paquete1.Usuario[] lGustado_pors = mensaje.gustado_por.toArray();
+			for(int i = 0; i < lGustado_pors.length; i++) {
+				lGustado_pors[i].le_gusta.remove(mensaje);
 			}
 			return delete(mensaje);
 		}
@@ -349,21 +357,29 @@ public class MensajeDAO {
 	
 	public static boolean deleteAndDissociate(paquete1.Mensaje mensaje, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (mensaje.getMensaje_propietario() != null) {
-				mensaje.getMensaje_propietario().usuario_a_escrito.remove(mensaje);
+			if (mensaje.getRespuesta_de() != null) {
+				mensaje.getRespuesta_de().respondido_por.remove(mensaje);
 			}
 			
-			if (mensaje.getMensaje_tiene_video() != null) {
-				mensaje.getMensaje_tiene_video().setMensaje_contenedor_video(null);
+			if (mensaje.getEsta_en() != null) {
+				mensaje.getEsta_en().tema_tiene_men.remove(mensaje);
 			}
 			
-			if (mensaje.getTema_pertenece() != null) {
-				mensaje.getTema_pertenece().tema_contiene.remove(mensaje);
+			if (mensaje.getMensaje_escrito_por() != null) {
+				mensaje.getMensaje_escrito_por().usuario_escribe.remove(mensaje);
 			}
 			
-			paquete1.Usuario[] lEs_gustados = mensaje.es_gustado.toArray();
-			for(int i = 0; i < lEs_gustados.length; i++) {
-				lEs_gustados[i].le_gusta.remove(mensaje);
+			paquete1.Mensaje[] lRespondido_pors = mensaje.respondido_por.toArray();
+			for(int i = 0; i < lRespondido_pors.length; i++) {
+				lRespondido_pors[i].setRespuesta_de(null);
+			}
+			paquete1.Notificacion[] lReferenciado_pors = mensaje.referenciado_por.toArray();
+			for(int i = 0; i < lReferenciado_pors.length; i++) {
+				lReferenciado_pors[i].setReferencia_a(null);
+			}
+			paquete1.Usuario[] lGustado_pors = mensaje.gustado_por.toArray();
+			for(int i = 0; i < lGustado_pors.length; i++) {
+				lGustado_pors[i].le_gusta.remove(mensaje);
 			}
 			try {
 				session.delete(mensaje);
@@ -380,7 +396,7 @@ public class MensajeDAO {
 	
 	public static boolean refresh(paquete1.Mensaje mensaje) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(mensaje);
+			ClasesIUPersistentManager.instance().getSession().refresh(mensaje);
 			return true;
 		}
 		catch (Exception e) {
@@ -391,7 +407,7 @@ public class MensajeDAO {
 	
 	public static boolean evict(paquete1.Mensaje mensaje) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(mensaje);
+			ClasesIUPersistentManager.instance().getSession().evict(mensaje);
 			return true;
 		}
 		catch (Exception e) {

@@ -34,6 +34,11 @@
 @mixin mytheme {
   @include valo;
 
+.fondo_boton_reporte{
+		background:#f53b3b;
+		color:#ffffff;
+}
+
 .texto_centrado{
 	font-size:140%;
 	vertical-align:middle;

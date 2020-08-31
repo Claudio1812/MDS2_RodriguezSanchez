@@ -23,19 +23,25 @@
         <vaadin-label plain-text>
           Contraseña actual 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width="95%"></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" width="95%" _id="contrasena_actual_label"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-split-panel locked height-auto split-position="38%">
         <vaadin-label plain-text>
           Contraseña nueva 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width="95%"></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" width="95%" _id="contrasena_nueva_label"></vaadin-text-field>
+       </vaadin-horizontal-split-panel>
+       <vaadin-horizontal-split-panel locked height-auto split-position="38%">
+        <vaadin-label plain-text>
+          confirmar contra 
+        </vaadin-label>
+        <vaadin-text-field style-name="no_borde" width="95%" _id="confirmar_contrasena_nueva"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-layout width-full>
-        <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_confirmar_nuevas_pass">
           Aceptar 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form no_borde" plain-text>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="cancelar_nueva_pass">
           Cancelar 
         </vaadin-button>
        </vaadin-horizontal-layout>

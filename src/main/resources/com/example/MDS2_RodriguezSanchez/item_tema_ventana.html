@@ -7,25 +7,34 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full margin="false">
-   <vaadin-panel style-name="borde_inferior_item" size-auto>
-    <vaadin-horizontal-layout>
-     <vaadin-image height-full></vaadin-image>
-     <vaadin-vertical-layout size-auto margin="false" :bottom>
-      <vaadin-label style-name="marge_rigth_2" plain-text>
-        Nombre_tema_var() 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        nombre_autor_var() 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout style-name="margen_rigth_2 margen_top_1" margin="false" _id="verticalLayout">
-      <vaadin-label style-name="margen_rigth_2" plain-text>
-        MEGUSTA_VAR 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        PARTICIPANTES_VAR 
-      </vaadin-label>
-     </vaadin-vertical-layout>
+   <vaadin-panel style-name="borde_inferior_item" width="600px" height="170px" _id="item_panel">
+    <vaadin-horizontal-layout size-full margin>
+     <vaadin-horizontal-split-panel locked>
+      <vaadin-horizontal-layout size-full>
+       <vaadin-vertical-layout spacing="false" size-full margin="false">
+        <vaadin-label style-name="marge_rigth_2" plain-text _id="nombre_tema_label">
+          Nombre_tema_var() 
+        </vaadin-label>
+        <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_visitar_perfil_creador">
+          nombre_user 
+        </vaadin-button>
+        <vaadin-horizontal-layout spacing="false" width-full height="120%">
+         <vaadin-button style-name="fondo_boton_reporte" width="80%" height="80%" plain-text _id="boton_reportar_item_tema" :middle>
+           Reportar 
+         </vaadin-button>
+         <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="eliminarTema">
+           eliminar 
+         </vaadin-button>
+        </vaadin-horizontal-layout>
+        <vaadin-label plain-text _id="label_fecha" :bottom>
+          Label 
+        </vaadin-label>
+       </vaadin-vertical-layout>
+      </vaadin-horizontal-layout>
+      <vaadin-vertical-layout spacing="false" size-full margin="false" _id="verticalLayout">
+       <vaadin-text-area rows="2" size-full readonly _id="text_area_descripcion"></vaadin-text-area>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-split-panel>
     </vaadin-horizontal-layout>
    </vaadin-panel>
   </vaadin-vertical-layout>

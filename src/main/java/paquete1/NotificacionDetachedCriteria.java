@@ -20,34 +20,44 @@ import org.orm.criteria.*;
 
 public class NotificacionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id_nota;
-	public final StringExpression Titulo;
+	public final IntegerExpression pertenece_aId;
+	public final AssociationExpression pertenece_a;
+	public final IntegerExpression referencia_aId;
+	public final AssociationExpression referencia_a;
+	public final StringExpression titulo;
 	public final StringExpression cuerpo;
 	public final StringExpression motivo;
-	public final IntegerExpression notificacion_propietarioId;
-	public final AssociationExpression notificacion_propietario;
 	
 	public NotificacionDetachedCriteria() {
 		super(paquete1.Notificacion.class, paquete1.NotificacionCriteria.class);
 		id_nota = new IntegerExpression("id_nota", this.getDetachedCriteria());
-		Titulo = new StringExpression("Titulo", this.getDetachedCriteria());
+		pertenece_aId = new IntegerExpression("pertenece_a.id_usuario", this.getDetachedCriteria());
+		pertenece_a = new AssociationExpression("pertenece_a", this.getDetachedCriteria());
+		referencia_aId = new IntegerExpression("referencia_a.id_mensaje", this.getDetachedCriteria());
+		referencia_a = new AssociationExpression("referencia_a", this.getDetachedCriteria());
+		titulo = new StringExpression("titulo", this.getDetachedCriteria());
 		cuerpo = new StringExpression("cuerpo", this.getDetachedCriteria());
 		motivo = new StringExpression("motivo", this.getDetachedCriteria());
-		notificacion_propietarioId = new IntegerExpression("notificacion_propietario.id_usuario", this.getDetachedCriteria());
-		notificacion_propietario = new AssociationExpression("notificacion_propietario", this.getDetachedCriteria());
 	}
 	
 	public NotificacionDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, paquete1.NotificacionCriteria.class);
 		id_nota = new IntegerExpression("id_nota", this.getDetachedCriteria());
-		Titulo = new StringExpression("Titulo", this.getDetachedCriteria());
+		pertenece_aId = new IntegerExpression("pertenece_a.id_usuario", this.getDetachedCriteria());
+		pertenece_a = new AssociationExpression("pertenece_a", this.getDetachedCriteria());
+		referencia_aId = new IntegerExpression("referencia_a.id_mensaje", this.getDetachedCriteria());
+		referencia_a = new AssociationExpression("referencia_a", this.getDetachedCriteria());
+		titulo = new StringExpression("titulo", this.getDetachedCriteria());
 		cuerpo = new StringExpression("cuerpo", this.getDetachedCriteria());
 		motivo = new StringExpression("motivo", this.getDetachedCriteria());
-		notificacion_propietarioId = new IntegerExpression("notificacion_propietario.id_usuario", this.getDetachedCriteria());
-		notificacion_propietario = new AssociationExpression("notificacion_propietario", this.getDetachedCriteria());
 	}
 	
-	public UsuarioDetachedCriteria createNotificacion_propietarioCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("notificacion_propietario"));
+	public UsuarioDetachedCriteria createPertenece_aCriteria() {
+		return new UsuarioDetachedCriteria(createCriteria("pertenece_a"));
+	}
+	
+	public MensajeDetachedCriteria createReferencia_aCriteria() {
+		return new MensajeDetachedCriteria(createCriteria("referencia_a"));
 	}
 	
 	public Notificacion uniqueNotificacion(PersistentSession session) {

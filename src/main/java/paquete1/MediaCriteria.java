@@ -37,7 +37,7 @@ public class MediaCriteria extends AbstractORMCriteria {
 	}
 	
 	public MediaCriteria() throws PersistentException {
-		this(BasededatosPersistentManager.instance().getSession());
+		this(ClasesIUPersistentManager.instance().getSession());
 	}
 	
 	public Media uniqueMedia() {

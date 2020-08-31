@@ -21,7 +21,7 @@ import java.util.List;
 public class FotoDAO {
 	public static Foto loadFotoByORMID(int id_media) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadFotoByORMID(session, id_media);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class FotoDAO {
 	
 	public static Foto getFotoByORMID(int id_media) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getFotoByORMID(session, id_media);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class FotoDAO {
 	
 	public static Foto loadFotoByORMID(int id_media, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadFotoByORMID(session, id_media, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class FotoDAO {
 	
 	public static Foto getFotoByORMID(int id_media, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getFotoByORMID(session, id_media, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class FotoDAO {
 	
 	public static List queryFoto(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryFoto(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class FotoDAO {
 	
 	public static List queryFoto(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryFoto(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class FotoDAO {
 	
 	public static Foto[] listFotoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listFotoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class FotoDAO {
 	
 	public static Foto[] listFotoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listFotoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class FotoDAO {
 	
 	public static Foto loadFotoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadFotoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class FotoDAO {
 	
 	public static Foto loadFotoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadFotoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class FotoDAO {
 	
 	public static java.util.Iterator iterateFotoByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateFotoByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class FotoDAO {
 	
 	public static java.util.Iterator iterateFotoByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateFotoByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class FotoDAO {
 	
 	public static boolean save(paquete1.Foto foto) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(foto);
+			ClasesIUPersistentManager.instance().saveObject(foto);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class FotoDAO {
 	
 	public static boolean delete(paquete1.Foto foto) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(foto);
+			ClasesIUPersistentManager.instance().deleteObject(foto);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,7 +323,7 @@ public class FotoDAO {
 	
 	public static boolean refresh(paquete1.Foto foto) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(foto);
+			ClasesIUPersistentManager.instance().getSession().refresh(foto);
 			return true;
 		}
 		catch (Exception e) {
@@ -334,7 +334,7 @@ public class FotoDAO {
 	
 	public static boolean evict(paquete1.Foto foto) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(foto);
+			ClasesIUPersistentManager.instance().getSession().evict(foto);
 			return true;
 		}
 		catch (Exception e) {

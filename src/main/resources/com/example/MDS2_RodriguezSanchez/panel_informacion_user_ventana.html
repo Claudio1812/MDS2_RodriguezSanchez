@@ -9,88 +9,103 @@
   <vaadin-vertical-split-panel style-name="fondo_default" locked split-position="5%">
    <vaadin-panel style-name="barra_superior sin_bordes" size-full></vaadin-panel>
    <vaadin-vertical-split-panel locked split-position="30%">
-    <vaadin-horizontal-layout size-full _id="ventana_user">
+    <vaadin-horizontal-split-panel locked split-position="70%" _id="ventana_user">
      <vaadin-panel style-name="no_borde margen_rigth_2 margen_top_2" width-auto height="70%" _id="etiqueta_user">
       <vaadin-horizontal-layout style-name="margen_rigth_2 margen_left_2" height-full>
-       <vaadin-image style-name="margen_right_2" width="120px" height-full :middle :center></vaadin-image>
+       <vaadin-image style-name="margen_right_2" width="120px" height-full _id="imagen_perfil_usuario" :middle :center></vaadin-image>
        <vaadin-vertical-layout style-name="texto_normal" size-auto margin="false" :middle :center>
-        <vaadin-label style-name="texto_normal" plain-text>
+        <vaadin-label style-name="texto_normal" plain-text _id="nombre_perfil_texto">
           Nombre_usuario_vab 
         </vaadin-label>
-        <vaadin-label plain-text>
+        <vaadin-label plain-text _id="cantidad_amigos_texto">
           Amigos: var() 
         </vaadin-label>
-        <vaadin-label plain-text>
+        <vaadin-label plain-text _id="cantidad_mensajes_texto">
           Mensajes online: var() 
         </vaadin-label>
        </vaadin-vertical-layout>
       </vaadin-horizontal-layout>
      </vaadin-panel>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout size-full>
-     <vaadin-form-layout size-full margin="false">
-      <vaadin-panel style-name="no_borde texto_centrado" size-auto>
-       <vaadin-label style-name="margen_left_2 margen_rigth_2" responsive plain-text>
-         Ultimos mensajes 
+     <vaadin-panel style-name="no_borde margen_rigth_2 margen_top_2" width="60%" height="60%" _id="panel_usuario_logeado_actual">
+      <vaadin-horizontal-layout size-full>
+       <vaadin-image size-full _id="imagen_usuario_logeado_perfil"></vaadin-image>
+       <vaadin-label plain-text _id="nombre_usuario_logeado" :middle :center>
+         Label 
        </vaadin-label>
-      </vaadin-panel>
-      <vaadin-panel style-name="fondo_tres" width="95%" height-full>
-       <vaadin-list-select style-name="fondo_dos margen_bottom_2 margen_top_2" width-full height="90%" data-item-type="java.lang.String">
-        <option item="Option1">Option 1</option>
-        <option item="Option2">Option 2</option>
-        <option item="Option3">Option 3</option>
-       </vaadin-list-select>
-      </vaadin-panel>
-      <vaadin-horizontal-layout width="50%">
-       <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
-       <vaadin-button style-name="no_borde fondo_botones_form" plain-text>
-         Buscar 
-       </vaadin-button>
       </vaadin-horizontal-layout>
-     </vaadin-form-layout>
+     </vaadin-panel>
+    </vaadin-horizontal-split-panel>
+    <vaadin-horizontal-split-panel locked split-position="56%">
+     <vaadin-panel style-name="fondo_default" size-full>
+      <vaadin-form-layout height="150%" margin="false" _id="formLayout_interfaz">
+       <vaadin-panel style-name="no_borde texto_centrado" size-auto>
+        <vaadin-label style-name="margen_left_2 margen_rigth_2" responsive plain-text _id="texto_ultimos_mensajes">
+          Ultimos mensajes 
+        </vaadin-label>
+       </vaadin-panel>
+       <vaadin-panel style-name="fondo_tres" width="580px" height-full>
+        <vaadin-vertical-layout spacing="false" height="0%" margin="false" _id="lista_ultimos_mensajes"></vaadin-vertical-layout>
+       </vaadin-panel>
+       <vaadin-horizontal-layout width="50%">
+        <vaadin-text-field visible="false" style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-button visible="false" style-name="no_borde fondo_botones_form" plain-text>
+          Buscar 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+      </vaadin-form-layout>
+     </vaadin-panel>
      <vaadin-vertical-layout size-full margin="false">
       <vaadin-horizontal-layout width-full>
        <vaadin-vertical-layout>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="perfil_cambiar_contrasena">
           Cambiar contraseña 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="perfil_borrar_cuenta">
           Borrar cuenta 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="perfil_incluir_amigo">
           Añadir amigo 
+        </vaadin-button>
+        <vaadin-button visible="false" style-name="fondo_botones_form" width-full plain-text _id="boton_moderacion_reportes">
+          Moderar Reportes 
         </vaadin-button>
        </vaadin-vertical-layout>
        <vaadin-vertical-layout>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="perfil_cerrar_sesion">
           cerrar session 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
-          Cambiar descripcion 
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="listaAmigos">
+          Mostrar amigos 
         </vaadin-button>
-        <vaadin-button style-name="fondo_botones_form" width-full plain-text>
-          Historial notificaciones 
+        <vaadin-button style-name="fondo_botones_form" width-full plain-text _id="perfil_historial_notificaciones_boton">
+          Notificaciones 
         </vaadin-button>
        </vaadin-vertical-layout>
       </vaadin-horizontal-layout>
       <vaadin-vertical-layout>
        <vaadin-panel style-name="no_borde">
         <vaadin-vertical-layout size-auto>
-         <vaadin-label plain-text>
+         <vaadin-label plain-text _id="correo_label_perfil">
            CORREO ELECTRONICO VAR() 
          </vaadin-label>
         </vaadin-vertical-layout>
        </vaadin-panel>
-       <vaadin-panel style-name="no_borde">
-        <vaadin-vertical-layout size-auto>
-         <vaadin-label plain-text>
+       <vaadin-panel visible="false" style-name="no_borde">
+        <vaadin-vertical-layout size-auto _id="descripcion_label">
+         <vaadin-label plain-text _id="label_descripcion_perfil">
            DESCRIPCION:VAR() 
          </vaadin-label>
         </vaadin-vertical-layout>
        </vaadin-panel>
+       <vaadin-horizontal-split-panel locked height-auto split-position="30%">
+        <vaadin-button style-name="fondo_botones_form" size-full plain-text _id="boton_reportarPerfil">
+          Reportar perfil 
+        </vaadin-button>
+        <vaadin-text-field visible="false" placeholder="Vuelva a pulsar reportar para confirmar" width-full _id="field_motivo_de_reporte"></vaadin-text-field>
+       </vaadin-horizontal-split-panel>
       </vaadin-vertical-layout>
      </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
+    </vaadin-horizontal-split-panel>
    </vaadin-vertical-split-panel>
   </vaadin-vertical-split-panel>
  </body>

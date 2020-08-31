@@ -73,6 +73,7 @@ public class MensajeSetCollection extends org.orm.util.ORMSet {
 	 * <li>id_mensaje</li>
 	 * <li>cuerpo</li>
 	 * <li>me_gusta</li>
+	 * <li>titulo</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -86,6 +87,7 @@ public class MensajeSetCollection extends org.orm.util.ORMSet {
 	 * <li>id_mensaje</li>
 	 * <li>cuerpo</li>
 	 * <li>me_gusta</li>
+	 * <li>titulo</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array
@@ -95,7 +97,7 @@ public class MensajeSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return BasededatosPersistentManager.instance();
+		return ClasesIUPersistentManager.instance();
 	}
 	
 }

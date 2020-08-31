@@ -21,7 +21,7 @@ import java.util.List;
 public class MediaDAO {
 	public static Media loadMediaByORMID(int id_media) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMediaByORMID(session, id_media);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class MediaDAO {
 	
 	public static Media getMediaByORMID(int id_media) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getMediaByORMID(session, id_media);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class MediaDAO {
 	
 	public static Media loadMediaByORMID(int id_media, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMediaByORMID(session, id_media, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class MediaDAO {
 	
 	public static Media getMediaByORMID(int id_media, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getMediaByORMID(session, id_media, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class MediaDAO {
 	
 	public static List queryMedia(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryMedia(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class MediaDAO {
 	
 	public static List queryMedia(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryMedia(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class MediaDAO {
 	
 	public static Media[] listMediaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listMediaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class MediaDAO {
 	
 	public static Media[] listMediaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listMediaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class MediaDAO {
 	
 	public static Media loadMediaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMediaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class MediaDAO {
 	
 	public static Media loadMediaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadMediaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class MediaDAO {
 	
 	public static java.util.Iterator iterateMediaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateMediaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class MediaDAO {
 	
 	public static java.util.Iterator iterateMediaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateMediaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class MediaDAO {
 	
 	public static boolean save(paquete1.Media media) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(media);
+			ClasesIUPersistentManager.instance().saveObject(media);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class MediaDAO {
 	
 	public static boolean delete(paquete1.Media media) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(media);
+			ClasesIUPersistentManager.instance().deleteObject(media);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,7 +323,7 @@ public class MediaDAO {
 	
 	public static boolean refresh(paquete1.Media media) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(media);
+			ClasesIUPersistentManager.instance().getSession().refresh(media);
 			return true;
 		}
 		catch (Exception e) {
@@ -334,7 +334,7 @@ public class MediaDAO {
 	
 	public static boolean evict(paquete1.Media media) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(media);
+			ClasesIUPersistentManager.instance().getSession().evict(media);
 			return true;
 		}
 		catch (Exception e) {

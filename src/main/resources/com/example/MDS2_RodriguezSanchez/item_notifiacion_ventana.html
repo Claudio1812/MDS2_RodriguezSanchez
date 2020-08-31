@@ -11,26 +11,25 @@
     <vaadin-panel style-name="borde_inferior_item" size-auto>
      <vaadin-horizontal-layout spacing="false" margin>
       <vaadin-vertical-layout size-auto margin="false">
-       <vaadin-label style-name="margen_left_2 margen_top_2" plain-text>
+       <vaadin-label style-name="margen_left_2 margen_top_2" plain-text _id="titulo_notificacion">
          Titulo_notificacion 
        </vaadin-label>
+       <vaadin-label plain-text _id="cuerpo_notificacion"></vaadin-label>
        <vaadin-horizontal-layout style-name="margen_left_2">
-        <vaadin-label plain-text>
+        <vaadin-label plain-text _id="usuario_creador">
           Emisor 
         </vaadin-label>
-        <vaadin-label plain-text>
+        <vaadin-label plain-text _id="tipo_notificaciones">
           tipo_var() 
         </vaadin-label>
-        <vaadin-label style-name="margen_rigth_2" plain-text>
-          Fecha 
-        </vaadin-label>
+        <vaadin-label style-name="margen_rigth_2" plain-text></vaadin-label>
        </vaadin-horizontal-layout>
       </vaadin-vertical-layout>
       <vaadin-vertical-layout size-full margin="false">
        <vaadin-button style-name="no_borde fondo_default fondo_botones_form no_borde" width-full plain-text _id="atender_Notificacion">
          atender 
        </vaadin-button>
-       <vaadin-button style-name="fondo_botones_form no_borde" width-full plain-text>
+       <vaadin-button style-name="fondo_botones_form no_borde" width-full plain-text _id="eliminar_notificacion">
          eliminar 
        </vaadin-button>
       </vaadin-vertical-layout>

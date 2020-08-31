@@ -6,28 +6,58 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full margin="false">
-   <vaadin-horizontal-layout>
-    <vaadin-panel style-name="borde_inferior_item" size-auto>
-     <vaadin-vertical-layout size-auto margin="false">
-      <vaadin-label style-name="margen_left_2 margen_top_2" plain-text>
-        Titulo_notificacion 
-      </vaadin-label>
-      <vaadin-horizontal-layout style-name="margen_left_2">
-       <vaadin-label plain-text>
-         Persona_ticket_var() 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         tipo_var() 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Estado 
-       </vaadin-label>
-       <vaadin-label style-name="margen_rigth_2" plain-text>
-         Fecha 
-       </vaadin-label>
+  <vaadin-vertical-layout spacing="false" size-full margin="false">
+   <vaadin-horizontal-layout spacing="false" width="420px" height="260px">
+    <vaadin-panel style-name="borde_inferior_item" size-full>
+     <vaadin-vertical-split-panel locked split-position="25%">
+      <vaadin-horizontal-layout size-full margin-left>
+       <vaadin-horizontal-split-panel locked split-position="30%">
+        <vaadin-horizontal-layout size-full>
+         <vaadin-panel _id="perfil_denunciado" :middle>
+          <vaadin-label plain-text _id="label_denunciado">
+            Denunciado 
+          </vaadin-label>
+         </vaadin-panel>
+        </vaadin-horizontal-layout>
+        <vaadin-horizontal-layout size-full>
+         <vaadin-button style-name="fondo_botones_form no_borde margen_left_1" plain-text _id="boton_banear" :middle :center>
+           Expulsar 
+         </vaadin-button>
+         <vaadin-button style-name="fondo_botones_form no_borde margen_left_1" plain-text _id="boton_perdonar_ventana" :middle :center>
+           Perdonar 
+         </vaadin-button>
+        </vaadin-horizontal-layout>
+       </vaadin-horizontal-split-panel>
       </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
+      <vaadin-vertical-split-panel locked split-position="80%">
+       <vaadin-horizontal-layout size-full margin-left>
+        <vaadin-vertical-split-panel locked split-position="22%">
+         <vaadin-horizontal-layout>
+          <vaadin-label plain-text _id="label_tipoDenuncia">
+            Mensaje/Perfil/Tema 
+          </vaadin-label>
+          <vaadin-label plain-text _id="titulo_item_reporte">
+            Label 
+          </vaadin-label>
+         </vaadin-horizontal-layout>
+         <vaadin-text-area rows="4" width="98%" _id="text_Area_informacion">
+           Aqui esta el mensaje o tema en cuestion que a sido reportado 
+         </vaadin-text-area>
+        </vaadin-vertical-split-panel>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout size-full margin-left>
+        <vaadin-panel style-name="no_borde" _id="perfil_denunciante">
+         <vaadin-label width="80%" height="80%" plain-text _id="label_denunciante">
+           Denunciante 
+         </vaadin-label>
+        </vaadin-panel>
+        <vaadin-label plain-text _id="label_fecha"></vaadin-label>
+        <vaadin-label plain-text _id="texto_auxiliar">
+          aux 
+        </vaadin-label>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-split-panel>
+     </vaadin-vertical-split-panel>
     </vaadin-panel>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>

@@ -23,8 +23,6 @@ public class VideoCriteria extends AbstractORMCriteria {
 	public final StringExpression nombre;
 	public final StringExpression tamaño;
 	public final StringExpression formato;
-	public final IntegerExpression mensaje_contenedor_videoId;
-	public final AssociationExpression mensaje_contenedor_video;
 	
 	public VideoCriteria(Criteria criteria) {
 		super(criteria);
@@ -32,8 +30,6 @@ public class VideoCriteria extends AbstractORMCriteria {
 		nombre = new StringExpression("nombre", this);
 		tamaño = new StringExpression("tamaño", this);
 		formato = new StringExpression("formato", this);
-		mensaje_contenedor_videoId = new IntegerExpression("mensaje_contenedor_video.", this);
-		mensaje_contenedor_video = new AssociationExpression("mensaje_contenedor_video", this);
 	}
 	
 	public VideoCriteria(PersistentSession session) {
@@ -41,11 +37,7 @@ public class VideoCriteria extends AbstractORMCriteria {
 	}
 	
 	public VideoCriteria() throws PersistentException {
-		this(BasededatosPersistentManager.instance().getSession());
-	}
-	
-	public MensajeCriteria createMensaje_contenedor_videoCriteria() {
-		return new MensajeCriteria(createCriteria("mensaje_contenedor_video"));
+		this(ClasesIUPersistentManager.instance().getSession());
 	}
 	
 	public Video uniqueVideo() {

@@ -21,7 +21,7 @@ import java.util.List;
 public class NotificacionDAO {
 	public static Notificacion loadNotificacionByORMID(int id_nota) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadNotificacionByORMID(session, id_nota);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion getNotificacionByORMID(int id_nota) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getNotificacionByORMID(session, id_nota);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByORMID(int id_nota, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadNotificacionByORMID(session, id_nota, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion getNotificacionByORMID(int id_nota, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getNotificacionByORMID(session, id_nota, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class NotificacionDAO {
 	
 	public static List queryNotificacion(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryNotificacion(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class NotificacionDAO {
 	
 	public static List queryNotificacion(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryNotificacion(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion[] listNotificacionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listNotificacionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion[] listNotificacionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listNotificacionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadNotificacionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadNotificacionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class NotificacionDAO {
 	
 	public static java.util.Iterator iterateNotificacionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateNotificacionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class NotificacionDAO {
 	
 	public static java.util.Iterator iterateNotificacionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateNotificacionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class NotificacionDAO {
 	
 	public static boolean save(paquete1.Notificacion notificacion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(notificacion);
+			ClasesIUPersistentManager.instance().saveObject(notificacion);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class NotificacionDAO {
 	
 	public static boolean delete(paquete1.Notificacion notificacion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(notificacion);
+			ClasesIUPersistentManager.instance().deleteObject(notificacion);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,8 +323,12 @@ public class NotificacionDAO {
 	
 	public static boolean deleteAndDissociate(paquete1.Notificacion notificacion)throws PersistentException {
 		try {
-			if (notificacion.getNotificacion_propietario() != null) {
-				notificacion.getNotificacion_propietario().usuario_tiene_notificacion.remove(notificacion);
+			if (notificacion.getPertenece_a() != null) {
+				notificacion.getPertenece_a().puede_tener.remove(notificacion);
+			}
+			
+			if (notificacion.getReferencia_a() != null) {
+				notificacion.getReferencia_a().referenciado_por.remove(notificacion);
 			}
 			
 			return delete(notificacion);
@@ -337,8 +341,12 @@ public class NotificacionDAO {
 	
 	public static boolean deleteAndDissociate(paquete1.Notificacion notificacion, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (notificacion.getNotificacion_propietario() != null) {
-				notificacion.getNotificacion_propietario().usuario_tiene_notificacion.remove(notificacion);
+			if (notificacion.getPertenece_a() != null) {
+				notificacion.getPertenece_a().puede_tener.remove(notificacion);
+			}
+			
+			if (notificacion.getReferencia_a() != null) {
+				notificacion.getReferencia_a().referenciado_por.remove(notificacion);
 			}
 			
 			try {
@@ -356,7 +364,7 @@ public class NotificacionDAO {
 	
 	public static boolean refresh(paquete1.Notificacion notificacion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(notificacion);
+			ClasesIUPersistentManager.instance().getSession().refresh(notificacion);
 			return true;
 		}
 		catch (Exception e) {
@@ -367,7 +375,7 @@ public class NotificacionDAO {
 	
 	public static boolean evict(paquete1.Notificacion notificacion) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(notificacion);
+			ClasesIUPersistentManager.instance().getSession().evict(notificacion);
 			return true;
 		}
 		catch (Exception e) {

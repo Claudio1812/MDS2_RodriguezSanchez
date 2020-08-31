@@ -99,7 +99,7 @@ public class UsuarioSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return BasededatosPersistentManager.instance();
+		return ClasesIUPersistentManager.instance();
 	}
 	
 }

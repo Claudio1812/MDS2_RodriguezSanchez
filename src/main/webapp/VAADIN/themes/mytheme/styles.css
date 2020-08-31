@@ -15419,6 +15419,11 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
+.mytheme .fondo_boton_reporte {
+	background: #f53b3b;
+	color: #ffffff;
+}
+
 .mytheme .texto_centrado {
 	font-size: 140%;
 	vertical-align: middle;

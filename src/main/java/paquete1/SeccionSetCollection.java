@@ -72,6 +72,8 @@ public class SeccionSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id_seccion</li>
 	 * <li>fecha_creacion</li>
+	 * <li>Titulo</li>
+	 * <li>Descripcion</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -84,6 +86,8 @@ public class SeccionSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id_seccion</li>
 	 * <li>fecha_creacion</li>
+	 * <li>Titulo</li>
+	 * <li>Descripcion</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array
@@ -93,7 +97,7 @@ public class SeccionSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return BasededatosPersistentManager.instance();
+		return ClasesIUPersistentManager.instance();
 	}
 	
 }

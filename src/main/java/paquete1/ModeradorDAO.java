@@ -21,7 +21,7 @@ import java.util.List;
 public class ModeradorDAO {
 	public static Moderador loadModeradorByORMID(int id_usuario) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadModeradorByORMID(session, id_usuario);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class ModeradorDAO {
 	
 	public static Moderador getModeradorByORMID(int id_usuario) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getModeradorByORMID(session, id_usuario);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class ModeradorDAO {
 	
 	public static Moderador loadModeradorByORMID(int id_usuario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadModeradorByORMID(session, id_usuario, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class ModeradorDAO {
 	
 	public static Moderador getModeradorByORMID(int id_usuario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getModeradorByORMID(session, id_usuario, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class ModeradorDAO {
 	
 	public static List queryModerador(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryModerador(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class ModeradorDAO {
 	
 	public static List queryModerador(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryModerador(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class ModeradorDAO {
 	
 	public static Moderador[] listModeradorByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listModeradorByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class ModeradorDAO {
 	
 	public static Moderador[] listModeradorByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listModeradorByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class ModeradorDAO {
 	
 	public static Moderador loadModeradorByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadModeradorByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class ModeradorDAO {
 	
 	public static Moderador loadModeradorByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadModeradorByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class ModeradorDAO {
 	
 	public static java.util.Iterator iterateModeradorByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateModeradorByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class ModeradorDAO {
 	
 	public static java.util.Iterator iterateModeradorByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateModeradorByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class ModeradorDAO {
 	
 	public static boolean save(paquete1.Moderador moderador) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(moderador);
+			ClasesIUPersistentManager.instance().saveObject(moderador);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class ModeradorDAO {
 	
 	public static boolean delete(paquete1.Moderador moderador) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(moderador);
+			ClasesIUPersistentManager.instance().deleteObject(moderador);
 			return true;
 		}
 		catch (Exception e) {
@@ -331,41 +331,41 @@ public class ModeradorDAO {
 				moderador.getRecibe_permisos().da_permisos.remove(moderador);
 			}
 			
-			paquete1.Administrador[] lAdministrados = moderador.administrado.toArray();
-			for(int i = 0; i < lAdministrados.length; i++) {
-				lAdministrados[i].administra.remove(moderador);
-			}
-			if (moderador.get_() != null) {
-				moderador.get_().amigo_de.remove(moderador);
-			}
-			
-			paquete1.Moderador[] lEs_moderados = moderador.es_moderado.toArray();
-			for(int i = 0; i < lEs_moderados.length; i++) {
-				lEs_moderados[i].modera.remove(moderador);
-			}
-			paquete1.Mensaje[] lUsuario_a_escritos = moderador.usuario_a_escrito.toArray();
-			for(int i = 0; i < lUsuario_a_escritos.length; i++) {
-				lUsuario_a_escritos[i].setMensaje_propietario(null);
-			}
-			paquete1.Notificacion[] lUsuario_tiene_notificacions = moderador.usuario_tiene_notificacion.toArray();
-			for(int i = 0; i < lUsuario_tiene_notificacions.length; i++) {
-				lUsuario_tiene_notificacions[i].setNotificacion_propietario(null);
-			}
-			paquete1.Mensaje[] lLe_gustas = moderador.le_gusta.toArray();
-			for(int i = 0; i < lLe_gustas.length; i++) {
-				lLe_gustas[i].es_gustado.remove(moderador);
-			}
-			paquete1.Usuario[] lAmigo_des = moderador.amigo_de.toArray();
-			for(int i = 0; i < lAmigo_des.length; i++) {
-				lAmigo_des[i].set_(null);
-			}
 			if (moderador.getBaneado_por() != null) {
 				moderador.getBaneado_por().banea.remove(moderador);
 			}
 			
-			paquete1.Tema[] lUsuario_crea_mensajes = moderador.usuario_crea_mensaje.toArray();
-			for(int i = 0; i < lUsuario_crea_mensajes.length; i++) {
-				lUsuario_crea_mensajes[i].setTema_propietario(null);
+			paquete1.Usuario[] lMistad_cons = moderador.mistad_con.toArray();
+			for(int i = 0; i < lMistad_cons.length; i++) {
+				lMistad_cons[i].amigo_de.remove(moderador);
+			}
+			paquete1.Moderador[] lEs_moderados = moderador.es_moderado.toArray();
+			for(int i = 0; i < lEs_moderados.length; i++) {
+				lEs_moderados[i].modera.remove(moderador);
+			}
+			paquete1.Administrador[] lAdministrados = moderador.administrado.toArray();
+			for(int i = 0; i < lAdministrados.length; i++) {
+				lAdministrados[i].administra.remove(moderador);
+			}
+			paquete1.Tema[] lUsuario_crea_temas = moderador.usuario_crea_tema.toArray();
+			for(int i = 0; i < lUsuario_crea_temas.length; i++) {
+				lUsuario_crea_temas[i].setCreador_tema(null);
+			}
+			paquete1.Mensaje[] lUsuario_escribes = moderador.usuario_escribe.toArray();
+			for(int i = 0; i < lUsuario_escribes.length; i++) {
+				lUsuario_escribes[i].setMensaje_escrito_por(null);
+			}
+			paquete1.Mensaje[] lLe_gustas = moderador.le_gusta.toArray();
+			for(int i = 0; i < lLe_gustas.length; i++) {
+				lLe_gustas[i].gustado_por.remove(moderador);
+			}
+			paquete1.Usuario[] lAmigo_des = moderador.amigo_de.toArray();
+			for(int i = 0; i < lAmigo_des.length; i++) {
+				lAmigo_des[i].mistad_con.remove(moderador);
+			}
+			paquete1.Notificacion[] lPuede_teners = moderador.puede_tener.toArray();
+			for(int i = 0; i < lPuede_teners.length; i++) {
+				lPuede_teners[i].setPertenece_a(null);
 			}
 			return delete(moderador);
 		}
@@ -385,41 +385,41 @@ public class ModeradorDAO {
 				moderador.getRecibe_permisos().da_permisos.remove(moderador);
 			}
 			
-			paquete1.Administrador[] lAdministrados = moderador.administrado.toArray();
-			for(int i = 0; i < lAdministrados.length; i++) {
-				lAdministrados[i].administra.remove(moderador);
-			}
-			if (moderador.get_() != null) {
-				moderador.get_().amigo_de.remove(moderador);
-			}
-			
-			paquete1.Moderador[] lEs_moderados = moderador.es_moderado.toArray();
-			for(int i = 0; i < lEs_moderados.length; i++) {
-				lEs_moderados[i].modera.remove(moderador);
-			}
-			paquete1.Mensaje[] lUsuario_a_escritos = moderador.usuario_a_escrito.toArray();
-			for(int i = 0; i < lUsuario_a_escritos.length; i++) {
-				lUsuario_a_escritos[i].setMensaje_propietario(null);
-			}
-			paquete1.Notificacion[] lUsuario_tiene_notificacions = moderador.usuario_tiene_notificacion.toArray();
-			for(int i = 0; i < lUsuario_tiene_notificacions.length; i++) {
-				lUsuario_tiene_notificacions[i].setNotificacion_propietario(null);
-			}
-			paquete1.Mensaje[] lLe_gustas = moderador.le_gusta.toArray();
-			for(int i = 0; i < lLe_gustas.length; i++) {
-				lLe_gustas[i].es_gustado.remove(moderador);
-			}
-			paquete1.Usuario[] lAmigo_des = moderador.amigo_de.toArray();
-			for(int i = 0; i < lAmigo_des.length; i++) {
-				lAmigo_des[i].set_(null);
-			}
 			if (moderador.getBaneado_por() != null) {
 				moderador.getBaneado_por().banea.remove(moderador);
 			}
 			
-			paquete1.Tema[] lUsuario_crea_mensajes = moderador.usuario_crea_mensaje.toArray();
-			for(int i = 0; i < lUsuario_crea_mensajes.length; i++) {
-				lUsuario_crea_mensajes[i].setTema_propietario(null);
+			paquete1.Usuario[] lMistad_cons = moderador.mistad_con.toArray();
+			for(int i = 0; i < lMistad_cons.length; i++) {
+				lMistad_cons[i].amigo_de.remove(moderador);
+			}
+			paquete1.Moderador[] lEs_moderados = moderador.es_moderado.toArray();
+			for(int i = 0; i < lEs_moderados.length; i++) {
+				lEs_moderados[i].modera.remove(moderador);
+			}
+			paquete1.Administrador[] lAdministrados = moderador.administrado.toArray();
+			for(int i = 0; i < lAdministrados.length; i++) {
+				lAdministrados[i].administra.remove(moderador);
+			}
+			paquete1.Tema[] lUsuario_crea_temas = moderador.usuario_crea_tema.toArray();
+			for(int i = 0; i < lUsuario_crea_temas.length; i++) {
+				lUsuario_crea_temas[i].setCreador_tema(null);
+			}
+			paquete1.Mensaje[] lUsuario_escribes = moderador.usuario_escribe.toArray();
+			for(int i = 0; i < lUsuario_escribes.length; i++) {
+				lUsuario_escribes[i].setMensaje_escrito_por(null);
+			}
+			paquete1.Mensaje[] lLe_gustas = moderador.le_gusta.toArray();
+			for(int i = 0; i < lLe_gustas.length; i++) {
+				lLe_gustas[i].gustado_por.remove(moderador);
+			}
+			paquete1.Usuario[] lAmigo_des = moderador.amigo_de.toArray();
+			for(int i = 0; i < lAmigo_des.length; i++) {
+				lAmigo_des[i].mistad_con.remove(moderador);
+			}
+			paquete1.Notificacion[] lPuede_teners = moderador.puede_tener.toArray();
+			for(int i = 0; i < lPuede_teners.length; i++) {
+				lPuede_teners[i].setPertenece_a(null);
 			}
 			try {
 				session.delete(moderador);
@@ -436,7 +436,7 @@ public class ModeradorDAO {
 	
 	public static boolean refresh(paquete1.Moderador moderador) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(moderador);
+			ClasesIUPersistentManager.instance().getSession().refresh(moderador);
 			return true;
 		}
 		catch (Exception e) {
@@ -447,7 +447,7 @@ public class ModeradorDAO {
 	
 	public static boolean evict(paquete1.Moderador moderador) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(moderador);
+			ClasesIUPersistentManager.instance().getSession().evict(moderador);
 			return true;
 		}
 		catch (Exception e) {

@@ -22,18 +22,20 @@ public class SeccionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id_seccion;
 	public final IntegerExpression creada_porId;
 	public final AssociationExpression creada_por;
-	public final IntegerExpression tema_hijoId;
-	public final AssociationExpression tema_hijo;
 	public final StringExpression fecha_creacion;
+	public final StringExpression Titulo;
+	public final StringExpression Descripcion;
+	public final CollectionExpression contiene_;
 	
 	public SeccionDetachedCriteria() {
 		super(paquete1.Seccion.class, paquete1.SeccionCriteria.class);
 		id_seccion = new IntegerExpression("id_seccion", this.getDetachedCriteria());
 		creada_porId = new IntegerExpression("creada_por.", this.getDetachedCriteria());
 		creada_por = new AssociationExpression("creada_por", this.getDetachedCriteria());
-		tema_hijoId = new IntegerExpression("tema_hijo.id_tema", this.getDetachedCriteria());
-		tema_hijo = new AssociationExpression("tema_hijo", this.getDetachedCriteria());
 		fecha_creacion = new StringExpression("fecha_creacion", this.getDetachedCriteria());
+		Titulo = new StringExpression("Titulo", this.getDetachedCriteria());
+		Descripcion = new StringExpression("Descripcion", this.getDetachedCriteria());
+		contiene_ = new CollectionExpression("ORM_contiene_", this.getDetachedCriteria());
 	}
 	
 	public SeccionDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -41,17 +43,18 @@ public class SeccionDetachedCriteria extends AbstractORMDetachedCriteria {
 		id_seccion = new IntegerExpression("id_seccion", this.getDetachedCriteria());
 		creada_porId = new IntegerExpression("creada_por.", this.getDetachedCriteria());
 		creada_por = new AssociationExpression("creada_por", this.getDetachedCriteria());
-		tema_hijoId = new IntegerExpression("tema_hijo.id_tema", this.getDetachedCriteria());
-		tema_hijo = new AssociationExpression("tema_hijo", this.getDetachedCriteria());
 		fecha_creacion = new StringExpression("fecha_creacion", this.getDetachedCriteria());
+		Titulo = new StringExpression("Titulo", this.getDetachedCriteria());
+		Descripcion = new StringExpression("Descripcion", this.getDetachedCriteria());
+		contiene_ = new CollectionExpression("ORM_contiene_", this.getDetachedCriteria());
 	}
 	
 	public AdministradorDetachedCriteria createCreada_porCriteria() {
 		return new AdministradorDetachedCriteria(createCriteria("creada_por"));
 	}
 	
-	public TemaDetachedCriteria createTema_hijoCriteria() {
-		return new TemaDetachedCriteria(createCriteria("tema_hijo"));
+	public TemaDetachedCriteria createContiene_Criteria() {
+		return new TemaDetachedCriteria(createCriteria("ORM_contiene_"));
 	}
 	
 	public Seccion uniqueSeccion(PersistentSession session) {

@@ -23,29 +23,20 @@ public class Tema implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_TEMA_PUBLICO) {
-			return ORM_publico;
-		}
-		else if (key == ORMConstants.KEY_TEMA_TEMA_CONTIENE) {
-			return ORM_tema_contiene;
-		}
-		else if (key == ORMConstants.KEY_TEMA_OCULTO) {
-			return ORM_oculto;
-		}
-		else if (key == ORMConstants.KEY_TEMA_PRIVADO) {
-			return ORM_privado;
+		if (key == ORMConstants.KEY_TEMA_TEMA_TIENE_MEN) {
+			return ORM_tema_tiene_men;
 		}
 		
 		return null;
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_TEMA_TEMA_PROPIETARIO) {
-			this.tema_propietario = (paquete1.Usuario) owner;
+		if (key == ORMConstants.KEY_TEMA_PERTENECE_A) {
+			this.pertenece_a = (paquete1.Seccion) owner;
 		}
 		
-		else if (key == ORMConstants.KEY_TEMA_SECCION_PADRE) {
-			this.seccion_padre = (paquete1.Seccion) owner;
+		else if (key == ORMConstants.KEY_TEMA_CREADOR_TEMA) {
+			this.creador_tema = (paquete1.Usuario) owner;
 		}
 	}
 	
@@ -67,14 +58,15 @@ public class Tema implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="PAQUETE1_TEMA_ID_TEMA_GENERATOR", strategy="native")	
 	private int id_tema;
 	
+	@ManyToOne(targetEntity=paquete1.Seccion.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="seccion_padre", referencedColumnName="Id_seccion", nullable=false) }, foreignKey=@ForeignKey(name="FKTema457492"))	
+	private paquete1.Seccion pertenece_a;
+	
 	@ManyToOne(targetEntity=paquete1.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="UsuarioId_usuario", referencedColumnName="Id_usuario") }, foreignKey=@ForeignKey(name="FKTema513615"))	
-	private paquete1.Usuario tema_propietario;
-	
-	@OneToOne(mappedBy="tema_hijo", targetEntity=paquete1.Seccion.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	private paquete1.Seccion seccion_padre;
+	@JoinColumns(value={ @JoinColumn(name="usuario_creador", referencedColumnName="Id_usuario") }, foreignKey=@ForeignKey(name="FKTema41406"))	
+	private paquete1.Usuario creador_tema;
 	
 	@Column(name="Descripcion", nullable=true, length=255)	
 	private String descripcion;
@@ -82,34 +74,19 @@ public class Tema implements Serializable {
 	@Column(name="Fecha_creacion", nullable=true, length=255)	
 	private String fecha_creacion;
 	
-	@Column(name="Me_gusta", nullable=true, length=10)	
+	@Column(name="Me_gusta", nullable=false, length=10)	
 	private int me_gusta;
 	
-	@Column(name="Participantes", nullable=true, length=10)	
+	@Column(name="Participantes", nullable=false, length=10)	
 	private int participantes;
 	
-	@OneToMany(targetEntity=paquete1.Tema.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="TemaId_tema3", nullable=false) })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_publico = new java.util.HashSet();
+	@Column(name="Titulo", nullable=true, length=255)	
+	private String titulo;
 	
-	@OneToMany(mappedBy="tema_pertenece", targetEntity=paquete1.Mensaje.class)	
+	@OneToMany(mappedBy="esta_en", targetEntity=paquete1.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_tema_contiene = new java.util.HashSet();
-	
-	@OneToMany(targetEntity=paquete1.Tema.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="TemaId_tema", nullable=false) })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_oculto = new java.util.HashSet();
-	
-	@OneToMany(targetEntity=paquete1.Tema.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="TemaId_tema2", nullable=false) })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_privado = new java.util.HashSet();
+	private java.util.Set ORM_tema_tiene_men = new java.util.HashSet();
 	
 	private void setId_tema(int value) {
 		this.id_tema = value;
@@ -155,95 +132,72 @@ public class Tema implements Serializable {
 		return participantes;
 	}
 	
-	private void setORM_Publico(java.util.Set value) {
-		this.ORM_publico = value;
+	public void setTitulo(String value) {
+		this.titulo = value;
 	}
 	
-	private java.util.Set getORM_Publico() {
-		return ORM_publico;
+	public String getTitulo() {
+		return titulo;
 	}
 	
-	@Transient	
-	public final paquete1.TemaSetCollection publico = new paquete1.TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_PUBLICO, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	public void setTema_propietario(paquete1.Usuario value) {
-		if (tema_propietario != null) {
-			tema_propietario.usuario_crea_mensaje.remove(this);
+	public void setPertenece_a(paquete1.Seccion value) {
+		if (pertenece_a != null) {
+			pertenece_a.contiene_.remove(this);
 		}
 		if (value != null) {
-			value.usuario_crea_mensaje.add(this);
+			value.contiene_.add(this);
 		}
 	}
 	
-	public paquete1.Usuario getTema_propietario() {
-		return tema_propietario;
+	public paquete1.Seccion getPertenece_a() {
+		return pertenece_a;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Tema_propietario(paquete1.Usuario value) {
-		this.tema_propietario = value;
+	public void setORM_Pertenece_a(paquete1.Seccion value) {
+		this.pertenece_a = value;
 	}
 	
-	private paquete1.Usuario getORM_Tema_propietario() {
-		return tema_propietario;
+	private paquete1.Seccion getORM_Pertenece_a() {
+		return pertenece_a;
 	}
 	
-	private void setORM_Tema_contiene(java.util.Set value) {
-		this.ORM_tema_contiene = value;
-	}
-	
-	private java.util.Set getORM_Tema_contiene() {
-		return ORM_tema_contiene;
-	}
-	
-	@Transient	
-	public final paquete1.MensajeSetCollection tema_contiene = new paquete1.MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_TEMA_CONTIENE, ORMConstants.KEY_MENSAJE_TEMA_PERTENECE, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	private void setORM_Oculto(java.util.Set value) {
-		this.ORM_oculto = value;
-	}
-	
-	private java.util.Set getORM_Oculto() {
-		return ORM_oculto;
-	}
-	
-	@Transient	
-	public final paquete1.TemaSetCollection oculto = new paquete1.TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_OCULTO, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	private void setORM_Privado(java.util.Set value) {
-		this.ORM_privado = value;
-	}
-	
-	private java.util.Set getORM_Privado() {
-		return ORM_privado;
-	}
-	
-	@Transient	
-	public final paquete1.TemaSetCollection privado = new paquete1.TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_PRIVADO, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	public void setSeccion_padre(paquete1.Seccion value) {
-		if (this.seccion_padre != value) {
-			paquete1.Seccion lseccion_padre = this.seccion_padre;
-			this.seccion_padre = value;
-			if (value != null) {
-				seccion_padre.setTema_hijo(this);
-			}
-			if (lseccion_padre != null && lseccion_padre.getTema_hijo() == this) {
-				lseccion_padre.setTema_hijo(null);
-			}
+	public void setCreador_tema(paquete1.Usuario value) {
+		if (creador_tema != null) {
+			creador_tema.usuario_crea_tema.remove(this);
+		}
+		if (value != null) {
+			value.usuario_crea_tema.add(this);
 		}
 	}
 	
-	public paquete1.Seccion getSeccion_padre() {
-		return seccion_padre;
+	public paquete1.Usuario getCreador_tema() {
+		return creador_tema;
 	}
 	
-	public void AdjuntarMedia() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Creador_tema(paquete1.Usuario value) {
+		this.creador_tema = value;
 	}
+	
+	private paquete1.Usuario getORM_Creador_tema() {
+		return creador_tema;
+	}
+	
+	private void setORM_Tema_tiene_men(java.util.Set value) {
+		this.ORM_tema_tiene_men = value;
+	}
+	
+	private java.util.Set getORM_Tema_tiene_men() {
+		return ORM_tema_tiene_men;
+	}
+	
+	@Transient	
+	public final paquete1.MensajeSetCollection tema_tiene_men = new paquete1.MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_TEMA_TIENE_MEN, ORMConstants.KEY_MENSAJE_ESTA_EN, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getId_tema());

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-split-panel style-name="fondo_default" locked split-position="5%">
+   <vaadin-panel style-name="barra_superior sin_bordes" size-full></vaadin-panel>
+   <vaadin-vertical-split-panel locked split-position="30%">
+    <vaadin-horizontal-layout size-full>
+     <vaadin-panel style-name="no_borde texto_centrado margen_rigth_2" width-auto height="50%" :middle :expand>
+      <vaadin-label style-name="texto_centrado margen_top_1 margen_left_2 margen_rigth_2" plain-text>
+        Crear seccion nueva 
+      </vaadin-label>
+     </vaadin-panel>
+    </vaadin-horizontal-layout>
+    <vaadin-form-layout size-full margin-top="false">
+     <vaadin-panel style-name="no_borde texto_centrado" width="15%">
+      <vaadin-label style-name="margen_left_2" plain-text>
+        Titulo 
+      </vaadin-label>
+     </vaadin-panel>
+     <vaadin-text-field style-name="no_borde" width="50%" _id="texto_nuevo_seccion"></vaadin-text-field>
+     <vaadin-panel style-name="no_borde texto_centrado margen_top_2" width="15%">
+      <vaadin-label style-name="margen_left_2" plain-text>
+        Descripcion 
+      </vaadin-label>
+     </vaadin-panel>
+     <vaadin-text-area style-name="no_borde" width="50%" _id="descrpcion_seccion_nuevo"></vaadin-text-area>
+     <vaadin-horizontal-layout width="50%" height-full>
+      <vaadin-label plain-text></vaadin-label>
+      <vaadin-horizontal-layout spacing="false" size-full>
+       <vaadin-button style-name="fondo_botones_form no_borde margen_right_2" plain-text _id="boton_cancelar_seccion">
+         Cancelar 
+       </vaadin-button>
+       <vaadin-button style-name="fondo_botones_form no_borde" plain-text _id="boton_subir_secciion" :middle :right>
+         Subir 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-form-layout>
+   </vaadin-vertical-split-panel>
+  </vaadin-vertical-split-panel>
+ </body>
+</html>

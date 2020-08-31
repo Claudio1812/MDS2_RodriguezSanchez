@@ -23,8 +23,6 @@ public class VideoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nombre;
 	public final StringExpression tamaño;
 	public final StringExpression formato;
-	public final IntegerExpression mensaje_contenedor_videoId;
-	public final AssociationExpression mensaje_contenedor_video;
 	
 	public VideoDetachedCriteria() {
 		super(paquete1.Video.class, paquete1.VideoCriteria.class);
@@ -32,8 +30,6 @@ public class VideoDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		tamaño = new StringExpression("tamaño", this.getDetachedCriteria());
 		formato = new StringExpression("formato", this.getDetachedCriteria());
-		mensaje_contenedor_videoId = new IntegerExpression("mensaje_contenedor_video.", this.getDetachedCriteria());
-		mensaje_contenedor_video = new AssociationExpression("mensaje_contenedor_video", this.getDetachedCriteria());
 	}
 	
 	public VideoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -42,12 +38,6 @@ public class VideoDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		tamaño = new StringExpression("tamaño", this.getDetachedCriteria());
 		formato = new StringExpression("formato", this.getDetachedCriteria());
-		mensaje_contenedor_videoId = new IntegerExpression("mensaje_contenedor_video.", this.getDetachedCriteria());
-		mensaje_contenedor_video = new AssociationExpression("mensaje_contenedor_video", this.getDetachedCriteria());
-	}
-	
-	public MensajeDetachedCriteria createMensaje_contenedor_videoCriteria() {
-		return new MensajeDetachedCriteria(createCriteria("mensaje_contenedor_video"));
 	}
 	
 	public Video uniqueVideo(PersistentSession session) {

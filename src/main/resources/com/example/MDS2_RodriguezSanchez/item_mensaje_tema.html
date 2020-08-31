@@ -6,34 +6,61 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout spacing="false" size-full margin="false">
-   <vaadin-vertical-layout size-full margin="false">
-    <vaadin-panel style-name="borde_inferior_item fondo_default" width="680px" height="250px">
-     <vaadin-horizontal-split-panel locked split-position="31%">
-      <vaadin-vertical-split-panel locked>
-       <vaadin-image size-full></vaadin-image>
-       <vaadin-vertical-layout spacing="false" size-full margin="false">
-        <vaadin-horizontal-split-panel style-name="fondo_dos borde_redondo" locked>
-         <vaadin-label plain-text>
-           Nombre_user 
-         </vaadin-label>
-         <vaadin-horizontal-layout size-full>
-          <vaadin-image width="35px" height="35px" _id="incluir_amigo_imga_btn"></vaadin-image>
-          <vaadin-image width="35px" height="35px" _id="boton_like_mensaje_tema"></vaadin-image>
+  <vaadin-vertical-layout spacing="false" size-auto margin="false">
+   <vaadin-panel size-auto>
+    <vaadin-vertical-layout spacing="false" size-auto>
+     <vaadin-panel style-name="borde_inferior_item fondo_default" width="740px" height="200px" _id="panel_mensaje_dimensiones">
+      <vaadin-horizontal-split-panel locked split-position="33%">
+       <vaadin-vertical-split-panel locked split-position="20%">
+        <vaadin-vertical-layout spacing="false" size-full margin="false" :second>
+         <vaadin-horizontal-split-panel style-name="fondo_dos borde_redondo" locked height="52px">
+          <vaadin-label height="27px" plain-text _id="usuario_mensaje">
+            Nombre_user 
+          </vaadin-label>
+          <vaadin-horizontal-layout size-full>
+           <vaadin-image width="35px" height="36px" _id="incluir_amigo_imga_btn" :bottom :center></vaadin-image>
+           <vaadin-panel style-name="borde_redondo" size-auto _id="panel_boton_like" :bottom></vaadin-panel>
+          </vaadin-horizontal-layout>
+         </vaadin-horizontal-split-panel>
+         <vaadin-horizontal-layout size-full :middle :center>
+          <vaadin-button visible="false" style-name="margen_top_1 fondo_botones_form no_borde margen_left_1" plain-text _id="boton_eliminar_mensaje">
+            Eliminar 
+          </vaadin-button>
+          <vaadin-button style-name="margen_top_3 fondo_botones_form no_borde" plain-text _id="boton_creador_perfil_mensaje">
+            creador 
+          </vaadin-button>
          </vaadin-horizontal-layout>
-        </vaadin-horizontal-split-panel>
-        <vaadin-horizontal-layout size-full>
-         <vaadin-image style-name="margen_top_3" _id="notificar_a_moderador"></vaadin-image>
-         <vaadin-image style-name="margen_top_3" _id="bORRAR_MENSAJE_PROPIO"></vaadin-image>
-        </vaadin-horizontal-layout>
+         <vaadin-horizontal-split-panel locked split-position="45%" :center>
+          <vaadin-panel caption="Ir tema" style-name="fondo_botones_form no_borde margen_left_1" size-auto _id="ir_tema_principal_mostrar_solo_en_ultimos_mensajes"></vaadin-panel>
+          <vaadin-button style-name="fondo_botones_form no_borde margen_left_1" plain-text _id="boton_responder">
+            Responder 
+          </vaadin-button>
+         </vaadin-horizontal-split-panel>
+        </vaadin-vertical-layout>
+       </vaadin-vertical-split-panel>
+       <vaadin-vertical-layout size-full margin="false">
+        <vaadin-panel size-full :center>
+         <vaadin-vertical-split-panel locked split-position="20%">
+          <vaadin-horizontal-split-panel locked split-position="71%">
+           <vaadin-label style-name="fondo_dos" size-full plain-text _id="texto_titulo">
+             Label 
+           </vaadin-label>
+           <vaadin-panel style-name="fondo_dos" size-full>
+            <vaadin-button style-name="fondo_boton_reporte" plain-text _id="reportar_mensaje_en_item">
+              Reportar 
+            </vaadin-button>
+           </vaadin-panel>
+          </vaadin-horizontal-split-panel>
+          <vaadin-label plain-text _id="texto_mansaje">
+            Label 
+          </vaadin-label>
+         </vaadin-vertical-split-panel>
+        </vaadin-panel>
        </vaadin-vertical-layout>
-      </vaadin-vertical-split-panel>
-      <vaadin-vertical-layout size-full margin="false">
-       <vaadin-text-area size-full readonly></vaadin-text-area>
-      </vaadin-vertical-layout>
-     </vaadin-horizontal-split-panel>
-    </vaadin-panel>
-   </vaadin-vertical-layout>
+      </vaadin-horizontal-split-panel>
+     </vaadin-panel>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
   </vaadin-vertical-layout>
  </body>
 </html>

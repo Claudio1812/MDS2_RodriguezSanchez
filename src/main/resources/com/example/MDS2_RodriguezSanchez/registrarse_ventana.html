@@ -24,53 +24,44 @@
         <vaadin-label plain-text>
           Nombre 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" _id="text_nombre"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-split-panel height-auto split-position="30%">
         <vaadin-label plain-text>
           Apellido 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
-       </vaadin-horizontal-split-panel>
-       <vaadin-horizontal-split-panel height-auto split-position="30%">
-        <vaadin-label plain-text>
-          Apodo 
-        </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" _id="text_apellido"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-split-panel height-auto split-position="30%">
         <vaadin-label plain-text>
           Correo @ 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
-       </vaadin-horizontal-split-panel>
-       <vaadin-horizontal-split-panel height-auto split-position="30%">
-        <vaadin-label plain-text>
-          Foto 
-        </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-text-field style-name="no_borde" _id="correo_texto"></vaadin-text-field>
        </vaadin-horizontal-split-panel>
        <vaadin-horizontal-split-panel height-auto split-position="30%">
         <vaadin-label plain-text>
           Contraseña 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-password-field _id="texto_contrasena"></vaadin-password-field>
        </vaadin-horizontal-split-panel>
-       <vaadin-horizontal-split-panel height-auto split-position="30%">
+       <vaadin-horizontal-split-panel height-auto split-position="45%">
         <vaadin-label>
           Conf \n Contraseña 
         </vaadin-label>
-        <vaadin-text-field style-name="no_borde" width-full></vaadin-text-field>
+        <vaadin-password-field width="140px" _id="contrasena_confirmacion_texto"></vaadin-password-field>
        </vaadin-horizontal-split-panel>
-       <vaadin-horizontal-layout size-full>
+       <vaadin-horizontal-layout size-full margin-right>
         <vaadin-check-box caption="T &amp; A"></vaadin-check-box>
-        <vaadin-button plain-text :middle :right>
+        <vaadin-button plain-text _id="boton_cancelar" :middle :right>
           Cancelar 
         </vaadin-button>
-        <vaadin-button size-full plain-text :middle :right>
+        <vaadin-button height-full plain-text _id="boton_subir" :middle :right>
           Subir 
         </vaadin-button>
        </vaadin-horizontal-layout>
+       <vaadin-label visible="false" width-full plain-text _id="label_errores">
+         El email ya esta en uso 
+       </vaadin-label>
       </vaadin-form-layout>
      </vaadin-panel>
      <vaadin-label plain-text></vaadin-label>

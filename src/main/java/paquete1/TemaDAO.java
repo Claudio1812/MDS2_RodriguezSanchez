@@ -21,7 +21,7 @@ import java.util.List;
 public class TemaDAO {
 	public static Tema loadTemaByORMID(int id_tema) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadTemaByORMID(session, id_tema);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class TemaDAO {
 	
 	public static Tema getTemaByORMID(int id_tema) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getTemaByORMID(session, id_tema);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByORMID(int id_tema, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadTemaByORMID(session, id_tema, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class TemaDAO {
 	
 	public static Tema getTemaByORMID(int id_tema, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return getTemaByORMID(session, id_tema, lockMode);
 		}
 		catch (Exception e) {
@@ -105,7 +105,7 @@ public class TemaDAO {
 	
 	public static List queryTema(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryTema(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class TemaDAO {
 	
 	public static List queryTema(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return queryTema(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class TemaDAO {
 	
 	public static Tema[] listTemaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listTemaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class TemaDAO {
 	
 	public static Tema[] listTemaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return listTemaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -204,7 +204,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadTemaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return loadTemaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class TemaDAO {
 	
 	public static java.util.Iterator iterateTemaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateTemaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class TemaDAO {
 	
 	public static java.util.Iterator iterateTemaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = BasededatosPersistentManager.instance().getSession();
+			PersistentSession session = ClasesIUPersistentManager.instance().getSession();
 			return iterateTemaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -301,7 +301,7 @@ public class TemaDAO {
 	
 	public static boolean save(paquete1.Tema tema) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().saveObject(tema);
+			ClasesIUPersistentManager.instance().saveObject(tema);
 			return true;
 		}
 		catch (Exception e) {
@@ -312,7 +312,7 @@ public class TemaDAO {
 	
 	public static boolean delete(paquete1.Tema tema) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().deleteObject(tema);
+			ClasesIUPersistentManager.instance().deleteObject(tema);
 			return true;
 		}
 		catch (Exception e) {
@@ -323,17 +323,17 @@ public class TemaDAO {
 	
 	public static boolean deleteAndDissociate(paquete1.Tema tema)throws PersistentException {
 		try {
-			if (tema.getTema_propietario() != null) {
-				tema.getTema_propietario().usuario_crea_mensaje.remove(tema);
+			if (tema.getPertenece_a() != null) {
+				tema.getPertenece_a().contiene_.remove(tema);
 			}
 			
-			if (tema.getSeccion_padre() != null) {
-				tema.getSeccion_padre().setTema_hijo(null);
+			if (tema.getCreador_tema() != null) {
+				tema.getCreador_tema().usuario_crea_tema.remove(tema);
 			}
 			
-			paquete1.Mensaje[] lTema_contienes = tema.tema_contiene.toArray();
-			for(int i = 0; i < lTema_contienes.length; i++) {
-				lTema_contienes[i].setTema_pertenece(null);
+			paquete1.Mensaje[] lTema_tiene_mens = tema.tema_tiene_men.toArray();
+			for(int i = 0; i < lTema_tiene_mens.length; i++) {
+				lTema_tiene_mens[i].setEsta_en(null);
 			}
 			return delete(tema);
 		}
@@ -345,17 +345,17 @@ public class TemaDAO {
 	
 	public static boolean deleteAndDissociate(paquete1.Tema tema, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (tema.getTema_propietario() != null) {
-				tema.getTema_propietario().usuario_crea_mensaje.remove(tema);
+			if (tema.getPertenece_a() != null) {
+				tema.getPertenece_a().contiene_.remove(tema);
 			}
 			
-			if (tema.getSeccion_padre() != null) {
-				tema.getSeccion_padre().setTema_hijo(null);
+			if (tema.getCreador_tema() != null) {
+				tema.getCreador_tema().usuario_crea_tema.remove(tema);
 			}
 			
-			paquete1.Mensaje[] lTema_contienes = tema.tema_contiene.toArray();
-			for(int i = 0; i < lTema_contienes.length; i++) {
-				lTema_contienes[i].setTema_pertenece(null);
+			paquete1.Mensaje[] lTema_tiene_mens = tema.tema_tiene_men.toArray();
+			for(int i = 0; i < lTema_tiene_mens.length; i++) {
+				lTema_tiene_mens[i].setEsta_en(null);
 			}
 			try {
 				session.delete(tema);
@@ -372,7 +372,7 @@ public class TemaDAO {
 	
 	public static boolean refresh(paquete1.Tema tema) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().refresh(tema);
+			ClasesIUPersistentManager.instance().getSession().refresh(tema);
 			return true;
 		}
 		catch (Exception e) {
@@ -383,7 +383,7 @@ public class TemaDAO {
 	
 	public static boolean evict(paquete1.Tema tema) throws PersistentException {
 		try {
-			BasededatosPersistentManager.instance().getSession().evict(tema);
+			ClasesIUPersistentManager.instance().getSession().evict(tema);
 			return true;
 		}
 		catch (Exception e) {

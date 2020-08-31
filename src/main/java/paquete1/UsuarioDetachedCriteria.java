@@ -20,80 +20,81 @@ import org.orm.criteria.*;
 
 public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id_usuario;
-	public final CollectionExpression administrado;
-	public final IntegerExpression _Id;
-	public final AssociationExpression _;
+	public final IntegerExpression baneado_porId;
+	public final AssociationExpression baneado_por;
 	public final StringExpression nombre;
 	public final StringExpression apellidos;
 	public final StringExpression email;
 	public final StringExpression contrasena;
+	public final CollectionExpression mistad_con;
 	public final CollectionExpression es_moderado;
-	public final CollectionExpression usuario_a_escrito;
-	public final CollectionExpression usuario_tiene_notificacion;
+	public final CollectionExpression administrado;
+	public final CollectionExpression usuario_crea_tema;
+	public final CollectionExpression usuario_escribe;
 	public final CollectionExpression le_gusta;
 	public final CollectionExpression amigo_de;
-	public final IntegerExpression baneado_porId;
-	public final AssociationExpression baneado_por;
-	public final CollectionExpression usuario_crea_mensaje;
+	public final CollectionExpression puede_tener;
 	
 	public UsuarioDetachedCriteria() {
 		super(paquete1.Usuario.class, paquete1.UsuarioCriteria.class);
 		id_usuario = new IntegerExpression("id_usuario", this.getDetachedCriteria());
-		administrado = new CollectionExpression("ORM_administrado", this.getDetachedCriteria());
-		_Id = new IntegerExpression("_.id_usuario", this.getDetachedCriteria());
-		_ = new AssociationExpression("_", this.getDetachedCriteria());
+		baneado_porId = new IntegerExpression("baneado_por.", this.getDetachedCriteria());
+		baneado_por = new AssociationExpression("baneado_por", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		apellidos = new StringExpression("apellidos", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		contrasena = new StringExpression("contrasena", this.getDetachedCriteria());
+		mistad_con = new CollectionExpression("ORM_mistad_con", this.getDetachedCriteria());
 		es_moderado = new CollectionExpression("ORM_es_moderado", this.getDetachedCriteria());
-		usuario_a_escrito = new CollectionExpression("ORM_usuario_a_escrito", this.getDetachedCriteria());
-		usuario_tiene_notificacion = new CollectionExpression("ORM_usuario_tiene_notificacion", this.getDetachedCriteria());
+		administrado = new CollectionExpression("ORM_administrado", this.getDetachedCriteria());
+		usuario_crea_tema = new CollectionExpression("ORM_usuario_crea_tema", this.getDetachedCriteria());
+		usuario_escribe = new CollectionExpression("ORM_usuario_escribe", this.getDetachedCriteria());
 		le_gusta = new CollectionExpression("ORM_le_gusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
-		baneado_porId = new IntegerExpression("baneado_por.", this.getDetachedCriteria());
-		baneado_por = new AssociationExpression("baneado_por", this.getDetachedCriteria());
-		usuario_crea_mensaje = new CollectionExpression("ORM_usuario_crea_mensaje", this.getDetachedCriteria());
+		puede_tener = new CollectionExpression("ORM_puede_tener", this.getDetachedCriteria());
 	}
 	
 	public UsuarioDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, paquete1.UsuarioCriteria.class);
 		id_usuario = new IntegerExpression("id_usuario", this.getDetachedCriteria());
-		administrado = new CollectionExpression("ORM_administrado", this.getDetachedCriteria());
-		_Id = new IntegerExpression("_.id_usuario", this.getDetachedCriteria());
-		_ = new AssociationExpression("_", this.getDetachedCriteria());
+		baneado_porId = new IntegerExpression("baneado_por.", this.getDetachedCriteria());
+		baneado_por = new AssociationExpression("baneado_por", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		apellidos = new StringExpression("apellidos", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		contrasena = new StringExpression("contrasena", this.getDetachedCriteria());
+		mistad_con = new CollectionExpression("ORM_mistad_con", this.getDetachedCriteria());
 		es_moderado = new CollectionExpression("ORM_es_moderado", this.getDetachedCriteria());
-		usuario_a_escrito = new CollectionExpression("ORM_usuario_a_escrito", this.getDetachedCriteria());
-		usuario_tiene_notificacion = new CollectionExpression("ORM_usuario_tiene_notificacion", this.getDetachedCriteria());
+		administrado = new CollectionExpression("ORM_administrado", this.getDetachedCriteria());
+		usuario_crea_tema = new CollectionExpression("ORM_usuario_crea_tema", this.getDetachedCriteria());
+		usuario_escribe = new CollectionExpression("ORM_usuario_escribe", this.getDetachedCriteria());
 		le_gusta = new CollectionExpression("ORM_le_gusta", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
-		baneado_porId = new IntegerExpression("baneado_por.", this.getDetachedCriteria());
-		baneado_por = new AssociationExpression("baneado_por", this.getDetachedCriteria());
-		usuario_crea_mensaje = new CollectionExpression("ORM_usuario_crea_mensaje", this.getDetachedCriteria());
+		puede_tener = new CollectionExpression("ORM_puede_tener", this.getDetachedCriteria());
 	}
 	
-	public AdministradorDetachedCriteria createAdministradoCriteria() {
-		return new AdministradorDetachedCriteria(createCriteria("ORM_administrado"));
+	public AdministradorDetachedCriteria createBaneado_porCriteria() {
+		return new AdministradorDetachedCriteria(createCriteria("baneado_por"));
 	}
 	
-	public UsuarioDetachedCriteria create_Criteria() {
-		return new UsuarioDetachedCriteria(createCriteria("_"));
+	public UsuarioDetachedCriteria createMistad_conCriteria() {
+		return new UsuarioDetachedCriteria(createCriteria("ORM_mistad_con"));
 	}
 	
 	public ModeradorDetachedCriteria createEs_moderadoCriteria() {
 		return new ModeradorDetachedCriteria(createCriteria("ORM_es_moderado"));
 	}
 	
-	public MensajeDetachedCriteria createUsuario_a_escritoCriteria() {
-		return new MensajeDetachedCriteria(createCriteria("ORM_usuario_a_escrito"));
+	public AdministradorDetachedCriteria createAdministradoCriteria() {
+		return new AdministradorDetachedCriteria(createCriteria("ORM_administrado"));
 	}
 	
-	public NotificacionDetachedCriteria createUsuario_tiene_notificacionCriteria() {
-		return new NotificacionDetachedCriteria(createCriteria("ORM_usuario_tiene_notificacion"));
+	public TemaDetachedCriteria createUsuario_crea_temaCriteria() {
+		return new TemaDetachedCriteria(createCriteria("ORM_usuario_crea_tema"));
+	}
+	
+	public MensajeDetachedCriteria createUsuario_escribeCriteria() {
+		return new MensajeDetachedCriteria(createCriteria("ORM_usuario_escribe"));
 	}
 	
 	public MensajeDetachedCriteria createLe_gustaCriteria() {
@@ -104,12 +105,8 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new UsuarioDetachedCriteria(createCriteria("ORM_amigo_de"));
 	}
 	
-	public AdministradorDetachedCriteria createBaneado_porCriteria() {
-		return new AdministradorDetachedCriteria(createCriteria("baneado_por"));
-	}
-	
-	public TemaDetachedCriteria createUsuario_crea_mensajeCriteria() {
-		return new TemaDetachedCriteria(createCriteria("ORM_usuario_crea_mensaje"));
+	public NotificacionDetachedCriteria createPuede_tenerCriteria() {
+		return new NotificacionDetachedCriteria(createCriteria("ORM_puede_tener"));
 	}
 	
 	public Usuario uniqueUsuario(PersistentSession session) {

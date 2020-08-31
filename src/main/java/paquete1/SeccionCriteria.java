@@ -22,18 +22,20 @@ public class SeccionCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id_seccion;
 	public final IntegerExpression creada_porId;
 	public final AssociationExpression creada_por;
-	public final IntegerExpression tema_hijoId;
-	public final AssociationExpression tema_hijo;
 	public final StringExpression fecha_creacion;
+	public final StringExpression Titulo;
+	public final StringExpression Descripcion;
+	public final CollectionExpression contiene_;
 	
 	public SeccionCriteria(Criteria criteria) {
 		super(criteria);
 		id_seccion = new IntegerExpression("id_seccion", this);
 		creada_porId = new IntegerExpression("creada_por.", this);
 		creada_por = new AssociationExpression("creada_por", this);
-		tema_hijoId = new IntegerExpression("tema_hijo.id_tema", this);
-		tema_hijo = new AssociationExpression("tema_hijo", this);
 		fecha_creacion = new StringExpression("fecha_creacion", this);
+		Titulo = new StringExpression("Titulo", this);
+		Descripcion = new StringExpression("Descripcion", this);
+		contiene_ = new CollectionExpression("ORM_contiene_", this);
 	}
 	
 	public SeccionCriteria(PersistentSession session) {
@@ -41,15 +43,15 @@ public class SeccionCriteria extends AbstractORMCriteria {
 	}
 	
 	public SeccionCriteria() throws PersistentException {
-		this(BasededatosPersistentManager.instance().getSession());
+		this(ClasesIUPersistentManager.instance().getSession());
 	}
 	
 	public AdministradorCriteria createCreada_porCriteria() {
 		return new AdministradorCriteria(createCriteria("creada_por"));
 	}
 	
-	public TemaCriteria createTema_hijoCriteria() {
-		return new TemaCriteria(createCriteria("tema_hijo"));
+	public TemaCriteria createContiene_Criteria() {
+		return new TemaCriteria(createCriteria("ORM_contiene_"));
 	}
 	
 	public Seccion uniqueSeccion() {
